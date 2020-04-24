@@ -1,0 +1,291 @@
+=========================
+Array and List Extensions
+=========================
+
+These extensions will shorten the code by a large chunk, make the code readable, and easier to manage.
+
+Some extensions may seem redundant like First and Convert, which are both present under the System.Linq namespace. While that's true, Linq treats most - if not all - collection extensions as IEnumerables, while Ivy Core treats arrays and lists separately, making implementation easier to understand.
+
+.. contents::
+
+AtOrFirst, AtOrLast, and AtOrDefault
+---------------------------------------------------------------------
+
+* **T AtOrFirst(int index)** - Returns the item at the given index or the first in the array if none is found.
+* **T AtOrLast(int index)** - Returns the first item at the given index or the last item in the array if none is found.
+* **T AtOrDefault(int index)** - Returns the provided index or the default value respective to the array object's type.
+
+.. code-block:: csharp
+    :linenos:
+
+    using IvyTools;
+    using UnityEngine;
+
+    public class MyClass: MonoBehaviour
+    {
+        string[] array =
+        {
+            "Text 0", "Text 1", "Text 2",
+            "Text 3", "Text 4", "Text 5"
+        };
+
+        void MyMethod()
+        {
+            Debug.Log(array.AtOrFirst(5)); // Prints "Text 4"
+            Debug.Log(array.AtOrFirst(10)); // Prints "Text 0"
+            Debug.Log(array.AtOrLast(5)); // Prints "Text 4"
+            Debug.Log(array.AtOrLast(10)); // Prints "Text 5"
+            Debug.Log(array.AtOrDefault(5)); // Prints "Text 4"
+            Debug.Log(array.AtOrDefault(10)); // Prints "string.Empty"
+        }
+    }
+
+ContainsIndex
+-------------
+
+* **bool ContainsIndex(int index)** - Tells if the array contains a specific index.
+
+.. code-block:: csharp
+    :linenos:
+
+    using IvyTools;
+    using UnityEngine;
+
+    public class MyClass: MonoBehaviour
+    {
+        string[] array =
+        {
+            "Text 0", "Text 1", "Text 2",
+            "Text 3", "Text 4", "Text 5"
+        };
+
+        void MyMethod()
+        {
+            if (array.ContainsIndex(1)) // Returns true
+                Debug.Log(array[1]); // Prints "Text 1"
+
+            if (array.Contains(7)) // Returns false
+                Debug.Log(array[7]);
+        }
+    }
+
+Convert
+-------
+
+* **T2 Convert<T1, T2>() where T1: T2** - Converts the array of type T1 to an array of type T2 via casting. T1 must be inherited from T2.
+
+.. code-block:: csharp
+    :linenos:
+
+    using IvyTools;
+    using UnityEngine;
+
+    public class MyClass: MonoBehaviour
+    {
+        public Transform[] transforms = new Transform[0];
+
+        void MyMethod()
+        {
+            // ...
+            Component[] comps = transforms.Convert<Transform, Component>();
+            // ...
+        }
+    }
+
+First, Last, SetFirst, SetLast
+------------------------------
+
+* **T First()** - Retrieves the first element of the array (array[0]).
+* **T Last()** - Retrieves the last element of the array (array[array.Length - 1]).
+* **SetFirst(T item)** - Sets the first element of an array.
+* **SetLast(T item)** - Sets the last element of the array.
+
+.. code-block:: csharp
+    :linenos:
+
+    using IvyTools;
+    using UnityEngine;
+
+    public class MyClass: MonoBehaviour
+    {
+        string[] array =
+        {
+            "Text 0", "Text 1", "Text 2",
+            "Text 3", "Text 4", "Text 5"
+        };
+
+        void MyMethod()
+        {
+            if (transforms.First() == "Text 0")
+            {
+                transforms.SetFirst(transforms.Last());
+            }
+            else
+                transforms.SetLast(transforms.First());
+        }
+    }
+
+GetTypes
+--------
+
+* **Type[] GetTypes()** - Returns an array with the types of the items stored inside of the original array.
+
+.. code-block:: csharp
+    :linenos:
+
+    using IvyTools;
+    using UnityEngine;
+
+    public class MyClass: MonoBehaviour
+    {
+        Component[] components = new Component[0];
+
+        void MyMethod()
+        {
+            // ...
+            Type[] types = components.GetTypes();
+            // ...
+        }
+    }
+
+ListItems
+---------
+
+* **string ListItems()** - Returns a readable string version of the array.
+
+.. code-block:: csharp
+    :linenos:
+
+    using IvyTools;
+    using UnityEngine;
+
+    public class MyClass: MonoBehaviour
+    {
+        string[] array =
+        {
+            "Text 0", "Text 1", "Text 2",
+            "Text 3", "Text 4", "Text 5"
+        };
+
+        void Start()
+        {
+            // Prints "string[]: [ Text 0, Text 1, Text 2, Text 3, Text 4, Text 5 ]"
+            Debug.Log(array.ListItems());
+        }
+    }
+
+Next, Previous, and Random (Index, Set, and References)
+-------------------------------------------------------
+
+* **int NextIndex(int index)** - Returns the next index relative to the provided index.
+* **int PreviousIndex(int index)** - Returns the previous index relative to the provided index.
+* **int RandomIndex()** - Returns a random index inside the boundries of the array.
+* **T Next(int index)** - Returns the next item relative to the provided index.
+* **T Previous(int index)** - Returns the previous item relative to the provided index.
+* **T Random()** - Returns a random item inside the boundries of the array.
+* **SetNext(int index, T item)** - Sets the item next to the provided array to the given item.
+* **SetPrevious(int index, T item)** - Sets the item previous to the provided array to the given item.
+* **SetRandom(T item)** - Sets a random item of the array to the given item.
+
+.. note::
+    All **Next** and **Previous** methods loop the array, I.e. when using **Next** at the top of the array it returns the bottom (array[0]), and when using **Previous** at the bottom of the array it returns the top (array[array.Length - 1]).
+
+.. code-block:: csharp
+    :linenos:
+
+    using IvyTools;
+    using UnityEngine;
+
+    public class MyClass: MonoBehaviour
+    {
+        string[] array =
+        {
+            "Text 0", "Text 1", "Text 2",
+            "Text 3", "Text 4", "Text 5"
+        };
+
+        void MyMethod()
+        {
+            int next_index = array.NextIndex(2); // Returns 3.
+            int next_index_loop = array.NextIndex(array.Length - 1); // Returns 0.
+
+            int prev_index = array.PreviousIndex(2); // Returns 1.
+            int prev_index_loop = array.PreviousIndex(0); // Returns 5, a.k.a. array.Length.
+
+            int random_index = array.RandomIndex(); // Returns "Random.Range(0, array.Length)".
+
+            string next = array.Next(2); // Returns Text 3.
+            string next_loop = array.Next(array.Length - 1); // Returns Text 0.
+
+            string prev = array.PreviousIndex(2); // Returns Text 1.
+            string prev_loop = array.PreviousIndex(0); // Returns Text 5.
+
+            string random = array.Random(); // Returns array[Random.Range(0, array.Length)].
+
+            array.SetNext(2, "Next Text"); // Sets Text 3 to Next Text.
+            array.SetNext(array.Length - 1, "Next Text"); // Sets Text 0 to Next Text.
+
+            array.SetPrevious(2, "Previous Text"); // Sets Text 1 to Previous Text.
+            array.SetPrevious(0, "Previous Text"); // Sets Text 5 to Previous Text.
+
+            array.SetRandom("RandomText"); // Sets a random item on the list to Random Text.
+        }
+    }
+
+ParentAll, UnparentAll, and SetActiveAll
+----------------------------------------
+
+They control parenting and the active state of the object. Here are the many variants and permutations of the above methods:
+
+* **ParentAll(Transform parent)** - Parents all objects from the array to another transform.
+* **ParentAll(Transform parent, int length)** - Parents all objects from the array up until the provided length - 1 to another transform.
+* **UnparentAll()** - Parents all objects to the root of the scene (I.e. no parent).
+* **UnparentAll(int length)** - Parents all objects up to the provided length - 1 to the root of the scene (I.e. no parent).
+* **SetActiveAll(bool state)** - Sets the objects' active state.
+* **SetActiveAll(bool state, int length)** - Sets the objects' active state up to the provided length - 1.
+* **ParentAndSetActiveAll(Transform parent, bool state)** - Sets the objects' parent to «parent» and the active state to «state».
+* **ParentAndSetActiveAll(Transform parent, bool state, int length)** - Sets the objects' parent to «parent» and the active state to «state» up until the provided length - 1.
+* **UnparentAndSetActiveAll(bool state)** - Sets the objects' parent to the root of the scene and the active state to «state».
+* **UnparentAndSetActiveAll(bool state, int length)** - Sets the objects' parent to the root of the scene and the active state to «state» up until the provided length - 1.
+
+.. code-block:: csharp
+    :linenos:
+
+    using IvyTools;
+    using UnityEngine;
+
+    public class MyClass: MonoBehaviour
+    {
+        public GameObject[] objs = new GameObject[0];
+
+        void MyMethod()
+        {
+            objs.ParentAll(transform);
+            objs.ParentAll(transform, 5);
+            objs.UnparentAll();
+            objs.UnparentAll(5);
+            objs.SetActiveAll(false);
+            objs.SetActiveAll(false, 5);
+            objs.ParentAndSetActiveAll(transform, true);
+            objs.ParentAndSetActiveAll(transform, true, 5);
+            objs.UnparentAndSetActiveAll(false);
+            objs.UnparentAndSetActiveAll(true, 5);
+        }
+    }
+
+OTHER EXTENSIONS
+----------------
+
+.. toctree::
+    :titlesonly:
+
+    Array and List Extensions <array-and-list>
+    GameObject and Component Extensions <gameobject-and-component>
+    ParticleSystem Extensions <particlesystem>
+    Physics Extensions <physics>
+    Value Extensions <value>
+
+Get Help
+--------
+
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!

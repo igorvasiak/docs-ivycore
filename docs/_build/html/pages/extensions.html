@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Extensions &#8212; Ivy Core 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="extensions">
+<h1>Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extensions/array-and-list.html">Array and List Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extensions/gameobject-and-component.html">GameObject and Component Extensions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="extensions/physics.html">Physics Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extensions/value.html">Value Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="extensions/physics.html">Physics Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions/value.html">Value Extensions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Extensions are a great way of extending classes and structs by artificially introducing methods into them. While they may look like local methods, they are actually static methods declared in another script.</p>
+<p>Most of the extensions included in the Ivy Core library are chainable. That means you can call many extensions for the same type in sequence, like this:</p>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyCore</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">GameObject</span><span class="p">[]</span> <span class="n">array</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">GameObject</span> <span class="n">obj</span> <span class="p">=</span> <span class="n">array</span><span class="p">.</span><span class="n">SetActiveAll</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>
+                            <span class="p">.</span><span class="n">UnparentAll</span><span class="p">()</span>
+                            <span class="p">.</span><span class="n">AtOrDefault</span><span class="p">(</span><span class="m">20</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Extensions are also a great way of bypassing boilerplate code. Many of the extensions in this library were created thinking of that. Boilerplate code is often the cause of bugs. Ideally, it should be avoided as much as possible. The main goal of Ivy Core’s extensions is not only to help to deal with boilerplate code but also to eliminate it completely.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Ivy Core</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Igor Vasiak.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/pages/extensions.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,28 @@
+===============
+Getting Started Using Ivy Core
+===============
+
+Ivy Core is a collection of extensions, utilities, and features that help speed up game development and write bug-free readable code while working with Unity.
+
+Many times we get caught re-writing code we already wrote before, be it in small sentences such as ``Vector3 b = new Vector3(a.x, 2, a.z)``, or be it in larger ones, such as array handling or image loading.
+
+Ivy Core takes care of that, and even more! As explained and demonstrated in this documentation conglomerate, you can write code faster than ever.
+
+So, let's get started?
+======================
+
+Well, the first thing you should do is download the library. Here's a link!
+
+After that, you'll have to import it into Unity. Unity versions before 2020.1 allow you to browse the Asset Store, download, and import assets from the Editor. Newer versions require you to save the asset from the browser version of the Asset Store, and only then you'll be able to import it from the Packages menu.
+
+Here's a tutorial on how to import assets for Unity 2019.1 and older, and for Unity 2020.1 and newer!
+
+Make sure that the main folder of the asset, Ivy Tools, is at the root of your Assets folder. If you need to change the location of the folder, read this article.
+
+You should now be ready to go! Now here are a few links that may help you to know more about Ivy Core!
+
+The Roadmap
+Attributes
+Extensions
+Utilities
+Values
