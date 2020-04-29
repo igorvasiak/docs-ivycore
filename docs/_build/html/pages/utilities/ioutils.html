@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>IvyIOUtils &#8212; Ivy Core 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ivyioutils">
+<h1>IvyIOUtils<a class="headerlink" href="#ivyioutils" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#string-getindexedpath-string-path-string-filename-string-extension-int-index"><span class="std std-ref">GetIndexedPath</span></a></p></li>
+<li><p><a class="reference internal" href="#sprite-loadsprite-string-path-int-width-int-height"><span class="std std-ref">LoadSprite</span></a></p></li>
+<li><p><a class="reference internal" href="#loadtonullsprite-and-tryloadtonullsprite"><span class="std std-ref">LoadToNullSprite and TryLoadToNullSprite</span></a></p></li>
+<li><p><a class="reference internal" href="#texture2d-loadtexture-string-path-int-width-int-height"><span class="std std-ref">LoadTexture</span></a></p></li>
+<li><p><a class="reference internal" href="#loadtonulltexture-and-tryloadtonulltexture"><span class="std std-ref">LoadToNullTexture and TryLoadToNullTexture</span></a></p></li>
+<li><p><span class="xref std std-ref">Other Utilities</span></p></li>
+<li><p><span class="xref std std-ref">Get Help</span></p></li>
+</ul>
+</div>
+<div class="section" id="utilities">
+<h2><strong>UTILITIES</strong><a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="string-getindexedpath-string-path-string-filename-string-extension-int-index">
+<h2>string GetIndexedPath(string path, string fileName, string extension, int index)<a class="headerlink" href="#string-getindexedpath-string-path-string-filename-string-extension-int-index" title="Permalink to this headline">¶</a></h2>
+<p>Returns the path of the file with an index that hasn’t been used yet. For example, if you pass the values to get the indexed path of «file.txt», and it already exists, you’ll get «file 1.txt». If many more already exist, you’ll get the next possible index. It looks for the file name recursively, recalling itself as many times as it is needed.</p>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools.Utilities</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kt">byte</span><span class="p">[]</span> <span class="n">bytes</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="n">ReadAllBytes</span><span class="p">(</span><span class="s">&quot;C:\Users\joe\Desktop\image.png&quot;</span><span class="p">);</span>
+
+        <span class="c1">// If image.png already exists it&#39;ll return image 1.png.</span>
+        <span class="n">File</span><span class="p">.</span><span class="n">WriteAllBytes</span><span class="p">(</span><span class="n">IvyIOUtils</span><span class="p">.</span><span class="n">GetIndexedPath</span><span class="p">(</span><span class="s">&quot;C:\Users\joe\Desktop\&quot;, &quot;</span><span class="n">image</span><span class="s">&quot;, &quot;</span><span class="n">png</span><span class="s">&quot;), bytes);</span>
+
+        <span class="c1">// If image 5.png already exists it&#39;ll return image 6.png, or keep calling until it finds an unused name.</span>
+        <span class="n">File</span><span class="p">.</span><span class="n">WriteAllBytes</span><span class="p">(</span><span class="n">IvyIOUtils</span><span class="p">.</span><span class="n">GetIndexedPath</span><span class="p">(</span><span class="s">&quot;C:\Users\joe\Desktop\&quot;, &quot;</span><span class="n">image</span><span class="s">&quot;, &quot;</span><span class="n">png</span><span class="s">&quot;, 5), bytes);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="sprite-loadsprite-string-path-int-width-int-height">
+<h2>Sprite LoadSprite(string path, int width, int height)<a class="headerlink" href="#sprite-loadsprite-string-path-int-width-int-height" title="Permalink to this headline">¶</a></h2>
+<p>Loads the sprite located at “path” with the provided resolution.</p>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Sprite</span> <span class="n">sprite</span> <span class="p">=</span> <span class="n">IvyIOUtils</span><span class="p">.</span><span class="n">LoadSprite</span><span class="p">(</span><span class="s">&quot;C:\Users\joe\Desktop\image.png&quot;</span><span class="p">,</span> <span class="m">512</span><span class="p">,</span> <span class="m">512</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="loadtonullsprite-and-tryloadtonullsprite">
+<h2>LoadToNullSprite and TryLoadToNullSprite<a class="headerlink" href="#loadtonullsprite-and-tryloadtonullsprite" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Texture2D LoadToNullSprite(ref Sprite sprite, string path, int width, int height)</strong> - Loads the image and sets sprite if sprite is null. It returns sprite even if not null.</p></li>
+<li><p><strong>bool TryLoadToNullSprite(ref Sprite sprite, string path, int width, int height)</strong> - Loads the image and sets sprite if sprite is null. It returns wether it set tex or not.</p></li>
+</ul>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools.Utilities</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Sprite</span> <span class="n">sprite</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+        <span class="n">IvyIOUtils</span><span class="p">.</span><span class="n">LoadToNullSprite</span><span class="p">(</span><span class="k">ref</span> <span class="n">sprite</span><span class="p">,</span> <span class="s">&quot;C:\Users\joe\Desktop\image.png&quot;</span><span class="p">,</span> <span class="m">512</span><span class="p">,</span> <span class="m">512</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">IvyIOUtils</span><span class="p">.</span><span class="n">TryLoadToNullSprite</span><span class="p">(</span><span class="k">ref</span> <span class="n">sprite</span> <span class="p">,</span> <span class="s">&quot;C:\Users\joe\Desktop\image.png&quot;</span><span class="p">,</span> <span class="m">512</span><span class="p">,</span> <span class="m">512</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="c1">// Do stuff…</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="texture2d-loadtexture-string-path-int-width-int-height">
+<h2>Texture2D LoadTexture(string path, int width, int height)<a class="headerlink" href="#texture2d-loadtexture-string-path-int-width-int-height" title="Permalink to this headline">¶</a></h2>
+<p>Loads the image located at “path” with the provided resolution.</p>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools.Utilities</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Texture2D</span> <span class="n">tex</span> <span class="p">=</span> <span class="n">IvyIOUtils</span><span class="p">.</span><span class="n">LoadTexture</span><span class="p">(</span><span class="s">&quot;C:\Users\joe\Desktop\image.png&quot;</span><span class="p">,</span> <span class="m">512</span><span class="p">,</span> <span class="m">512</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="loadtonulltexture-and-tryloadtonulltexture">
+<h2>LoadToNullTexture and TryLoadToNullTexture<a class="headerlink" href="#loadtonulltexture-and-tryloadtonulltexture" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Texture2D LoadToNullTexture(ref Texture2D tex, string path, int width, int height)</strong> - Loads the texture and sets tex if tex is null. It returns tex even if not null.</p></li>
+<li><p><strong>bool TryLoadToNullTexture(ref Texture2D tex, string path, int width, int height)</strong> - Loads the texture and sets tex if tex is null. It returns wether it set tex or not.</p></li>
+</ul>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools.Utilities</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Texture2D</span> <span class="n">tex</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+        <span class="n">IvyIOUtils</span><span class="p">.</span><span class="n">LoadToNullTexture</span><span class="p">(</span><span class="k">ref</span> <span class="n">tex</span><span class="p">,</span> <span class="s">&quot;C:\Users\joe\Desktop\image.png&quot;</span><span class="p">,</span> <span class="m">512</span><span class="p">,</span> <span class="m">512</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">IvyIOUtils</span><span class="p">.</span><span class="n">TryLoadToNullTexture</span><span class="p">(</span><span class="k">ref</span> <span class="n">tex</span><span class="p">,</span> <span class="s">&quot;C:\Users\joe\Desktop\image.png&quot;</span><span class="p">,</span> <span class="m">512</span><span class="p">,</span> <span class="m">512</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="c1">// Do things…</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="other-utilities">
+<h2><strong>OTHER UTILITIES</strong><a class="headerlink" href="#other-utilities" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="arrayutils-and-listutils.html">IvyArrayUtils and IvyListUtils</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IvyIOUtils</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="logutils.html">IvyLogUtils</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="get-help">
+<h2><strong>GET HELP</strong><a class="headerlink" href="#get-help" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://discord.gg/CvG3p7Q">Join this Discord server</a> to get help, suggest new features, and vote on future updates!</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Ivy Core</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Igor Vasiak.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/pages/utilities/ioutils.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

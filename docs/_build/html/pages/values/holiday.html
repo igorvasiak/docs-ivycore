@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Holiday &#8212; Ivy Core 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="holiday">
+<h1>Holiday<a class="headerlink" href="#holiday" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#fields"><span class="std std-ref">Fields</span></a></p></li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="#methods"><span class="std std-ref">Methods</span></a></dt><dd><ul>
+<li><p><a class="reference internal" href="#holiday-get-holiday-kind-type"><span class="std std-ref">Get</span></a></p></li>
+<li><p><a class="reference internal" href="#bool-isholiday-holiday-holiday"><span class="std std-ref">IsHoliday</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="#properties"><span class="std std-ref">Properties</span></a></dt><dd><ul>
+<li><p><a class="reference internal" href="#pre-defined-holidays"><span class="std std-ref">Pre-Defined Holidays</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference internal" href="#other-values"><span class="std std-ref">Other Values</span></a></p></li>
+<li><p><a class="reference internal" href="#get-help"><span class="std std-ref">Get Help</span></a></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="fields">
+<h2><strong>FIELDS</strong><a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>string</p></td>
+<td><p>name</p></td>
+<td><p><em>The name of the Holiday.</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Holiday.Kind</p></td>
+<td><p>kind</p></td>
+<td><p><em>The kind of holiday. For example, if it is Custom, a Christmas, or Nothing at all.</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Holiday.YearWrapMode</p></td>
+<td><p>wrapMode</p></td>
+<td><p><em>Defines how the holiday will behave during the year.</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>System.DateTime</p></td>
+<td><p>startDate</p></td>
+<td><p><em>The date at which the holiday starts.</em></p></td>
+</tr>
+<tr class="row-even"><td><p>System.DateTime</p></td>
+<td><p>endDate</p></td>
+<td><p><em>The date at which the holiday ends.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="methods">
+<h2><strong>METHODS</strong><a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="holiday-get-holiday-kind-type">
+<h2>Holiday Get(Holiday.Kind type)<a class="headerlink" href="#holiday-get-holiday-kind-type" title="Permalink to this headline">¶</a></h2>
+<p>Returns the Holiday that best corresponds the given HolidayType.</p>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEditor</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="n">Holiday</span><span class="p">.</span><span class="n">Kind</span> <span class="n">holidayKind</span> <span class="p">=</span> <span class="n">Holiday</span><span class="p">.</span><span class="n">Kind</span><span class="p">.</span><span class="n">Christmas</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Holiday</span> <span class="n">holiday</span> <span class="p">=</span> <span class="n">Get</span><span class="p">(</span><span class="n">holiday</span><span class="p">);</span> <span class="c1">// Returns Holiday.Christmas.</span>
+        <span class="c1">// Do something with &quot;holiday&quot; now...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="bool-isholiday-holiday-holiday">
+<h2>bool IsHoliday(Holiday holiday)<a class="headerlink" href="#bool-isholiday-holiday-holiday" title="Permalink to this headline">¶</a></h2>
+<p>Verifies if a specific holiday is going on.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method won’t correctly capture an EndAndBeginning holiday whose startDate renders to a period possibly before the endDate.</p>
+<p>For example, a holiday that happens from April of this year and lasts to May of the next year won’t behave properly.</p>
+<p>The same is true for a BeginningAndEnd holiday whose startDate is a period <strong>after</strong> the endDate.</p>
+<p>So, a holiday that happens from May of this year to April of the next year may not behave properly.</p>
+<p>And, when using no wrap, any holiday that crosses the New Year’s Eve won’t behave as either.</p>
+<p>An event from April of this year to May of the next year will be treated as an April to May of the same year event, and an event that ranges from December to January will just be discarded, because of how I’m handling holidays.</p>
+<p>I do have plans for future improvements to the overall Holiday behavior.</p>
+</div>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="n">Holiday</span> <span class="n">holiday</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">IsHoliday</span><span class="p">(</span><span class="n">holiday</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="c1">// Do something amazing!</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="properties">
+<h2><strong>PROPERTIES</strong><a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pre-defined-holidays">
+<h2>Pre-Defined Holidays<a class="headerlink" href="#pre-defined-holidays" title="Permalink to this headline">¶</a></h2>
+<div class="topic">
+<p class="topic-title">Carnaval</p>
+<p>The true Carnaval is February the 24th and 25th. It here starts on February 20th, and ends on February 27th.</p>
+</div>
+<div class="topic">
+<p class="topic-title">Christmas</p>
+<p>Christmas, the 25th of December, in this case has a one-month-long duration. It goes from December the 15th to January the 6th.</p>
+</div>
+<div class="topic">
+<p class="topic-title">Easter</p>
+<p>Easter, originally the second Sunday of April, here lasts from April the 1st to April 30th.</p>
+</div>
+<div class="topic">
+<p class="topic-title">Halloween</p>
+<p>Originally the 31th of October, it begins on the 20th of October and lasts until November the 10th.</p>
+</div>
+<div class="topic">
+<p class="topic-title">KidsDay</p>
+<p>The 12th of October, it lasts from the 1st of October to the 15th of October.</p>
+</div>
+<div class="topic">
+<p class="topic-title">NewYear</p>
+<p>The last night of the year to the dawn of the next, it here lasts eleven days. From the 26th of December to January the 6th.</p>
+</div>
+<div class="topic">
+<p class="topic-title">StPatrickDay</p>
+<p>March the 17th, it here lasts from the 15th to the 31st of March.</p>
+</div>
+<div class="topic">
+<p class="topic-title">Valentine</p>
+<p>Valentine, February the 14th, ranges from February the 10th to February the 17th.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="other-values">
+<h2><strong>OTHER VALUES</strong><a class="headerlink" href="#other-values" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Holiday</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="register.html">Register&lt;T&gt;</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="get-help">
+<h2><strong>GET HELP</strong><a class="headerlink" href="#get-help" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://discord.gg/CvG3p7Q">Join this Discord server</a> to get help, suggest new features, and vote on future updates!</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Ivy Core</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Igor Vasiak.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/pages/values/holiday.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

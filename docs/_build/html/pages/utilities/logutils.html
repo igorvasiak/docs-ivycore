@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Physics Extensions &#8212; Ivy Core 1.0.0 documentation</title>
+    <title>LogUtils &#8212; Ivy Core 1.0.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -30,28 +30,27 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="physics-extensions">
-<h1>Physics Extensions<a class="headerlink" href="#physics-extensions" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="logutils">
+<h1>LogUtils<a class="headerlink" href="#logutils" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference internal" href="#clampvelocity"><span class="std std-ref">ClampVelocity</span></a></p></li>
-<li><p><span class="xref std std-ref">Other Extensions</span></p></li>
-<li><p><span class="xref std std-ref">Get Help</span></p></li>
+<li><p><a class="reference internal" href="#editorlog"><span class="std std-ref">EditorLog</span></a></p></li>
 </ul>
 </div></blockquote>
 </div>
-<div class="section" id="extensions">
-<h2><strong>EXTENSIONS</strong><a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="utilities">
+<h2><strong>UTILITIES</strong><a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="clampvelocity">
-<h2>ClampVelocity<a class="headerlink" href="#clampvelocity" title="Permalink to this headline">¶</a></h2>
-<p>Clamps the Rigidbody’s velocity. There are some variants for this method.</p>
+<div class="section" id="editorlog">
+<h2>EditorLog<a class="headerlink" href="#editorlog" title="Permalink to this headline">¶</a></h2>
+<p>These methods create messages only while running the game in the editor. That means if you try to use these logs in a build, they won’t be logged.</p>
 <ul class="simple">
-<li><p><strong>ClampVelocity(float min, float max)</strong></p></li>
-<li><p><strong>ClampVelocity(Vector2 min, Vector2 max)</strong> - Rigidbody2D-only.</p></li>
-<li><p><strong>ClampVelocity(Vector3 min, Vector3 max)</strong> - Rigidbody-only.</p></li>
+<li><p><strong>EditorLog(string message, Object context)</strong> - Logs a standard message to the console.</p></li>
+<li><p><strong>EditorLogWarning(string message, Object context)</strong> - Logs a warning message to the console.</p></li>
+<li><p><strong>EditorLogError(string message, Object context)</strong> - Logs an error message to the console.</p></li>
+<li><p><strong>EditorLogException(Exception exception, Object context)</strong> - Logs an exception to the console.</p></li>
 </ul>
 <div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -68,35 +67,53 @@
 13
 14
 15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools</span><span class="p">;</span>
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools.Utilities</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 
 <span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
 <span class="p">{</span>
-    <span class="n">Rigidbody</span> <span class="n">rbody</span><span class="p">;</span>
-    <span class="n">Rigidbody2D</span> <span class="n">rbody2d</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">bool</span> <span class="n">canMove</span><span class="p">;</span>
+    <span class="k">public</span> <span class="n">Transform</span> <span class="n">target</span><span class="p">;</span>
 
     <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
     <span class="p">{</span>
-        <span class="c1">// ...</span>
-        <span class="n">rbody</span><span class="p">.</span><span class="n">ClampVelocity</span><span class="p">(-</span><span class="m">3f</span><span class="p">,</span> <span class="m">3f</span><span class="p">);</span>
-        <span class="n">rbody2d</span><span class="p">.</span><span class="n">ClampVelocity</span><span class="p">(</span><span class="k">new</span> <span class="n">Vector2</span><span class="p">(-</span><span class="m">3f</span><span class="p">,</span> <span class="p">-</span><span class="m">5f</span><span class="p">),</span> <span class="k">new</span> <span class="n">Vector2</span><span class="p">(</span><span class="m">3f</span><span class="p">,</span> <span class="m">5f</span><span class="p">));</span>
-        <span class="c1">// ...</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">IvyLogUtils</span><span class="p">.</span><span class="n">EditorLogError</span><span class="p">(</span><span class="s">&quot;Target is null, can&#39;t proceed with the operation!&quot;</span><span class="p">);</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Doing a thing...</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">canMove</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Do the thing...</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+            <span class="n">IvyLogUtils</span><span class="p">.</span><span class="n">EditorLogWarning</span><span class="p">(</span><span class="s">&quot;Can&#39;t move! Is this intentional behavior?&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 <hr class="docutils" />
-<div class="section" id="other-extensions">
-<h2><strong>OTHER EXTENSIONS</strong><a class="headerlink" href="#other-extensions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="other-utilities">
+<h2><strong>OTHER UTILITIES</strong><a class="headerlink" href="#other-utilities" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="array-and-list.html">Array and List Extensions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="gameobject-and-component.html">GameObject and Component Extensions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="particlesystem.html">ParticleSystem Extensions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Physics Extensions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="value.html">Value Extensions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="arrayutils-and-listutils.html">IvyArrayUtils and IvyListUtils</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ioutils.html">IvyIOUtils</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IvyLogUtils</a></li>
 </ul>
 </div>
 </div>
@@ -161,7 +178,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../_sources/pages/extensions/physics.rst.txt"
+      <a href="../../_sources/pages/utilities/logutils.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

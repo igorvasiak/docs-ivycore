@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>IvyArrayUtils and IvyListUtils &#8212; Ivy Core 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ivyarrayutils-and-ivylistutils">
+<h1>IvyArrayUtils and IvyListUtils<a class="headerlink" href="#ivyarrayutils-and-ivylistutils" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#append-ref-t-array-t-item"><span class="std std-ref">Append</span></a></p></li>
+<li><p><a class="reference internal" href="#insert-ref-t-array-t-item-int-index-and-removeat-ref-t-array-int-index"><span class="std std-ref">Insert and RemoveAt</span></a></p></li>
+<li><p><a class="reference internal" href="#moveup-ref-t-list-t-array-int-index-and-movedown-ref-t-list-t-array-int-index"><span class="std std-ref">MoveUp and MoveDown</span></a></p></li>
+<li><p><a class="reference internal" href="#offsetup-ref-t-list-t-array-int-steps-and-offsetdown-ref-t-list-t-array-int-steps"><span class="std std-ref">OffsetUp and OffsetDown</span></a></p></li>
+<li><p><span class="xref std std-ref">Other Utilities</span></p></li>
+<li><p><span class="xref std std-ref">Get Help</span></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="utilities">
+<h2><strong>UTILITIES</strong><a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="append-ref-t-array-t-item">
+<h2>Append(ref T[] array, T item)<a class="headerlink" href="#append-ref-t-array-t-item" title="Permalink to this headline">¶</a></h2>
+<p>Adds an item to the end of the array.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ArrayUtils-only content.
+Equivalent to List.Add.</p>
+</div>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools.Utilities</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="kt">string</span><span class="p">[]</span> <span class="n">array</span> <span class="p">=</span>
+    <span class="p">{</span>
+        <span class="s">&quot;Text 0&quot;</span><span class="p">,</span> <span class="s">&quot;Text 1&quot;</span><span class="p">,</span> <span class="s">&quot;Text 2&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Text 3&quot;</span><span class="p">,</span> <span class="s">&quot;Text 4&quot;</span><span class="p">,</span> <span class="s">&quot;Text 5&quot;</span>
+    <span class="p">};</span>
+
+    <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Array is set to</span>
+        <span class="c1">// [ &quot;Text 0&quot;, &quot;Text 1&quot;, &quot;Text 2&quot;, &quot;Text 3&quot;, &quot;Text 4&quot;, &quot;Text 5&quot;, &quot;Text 6&quot; ]</span>
+        <span class="n">IvyArrayUtils</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="k">ref</span> <span class="n">array</span><span class="p">,</span> <span class="s">&quot;Text 6&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="insert-ref-t-array-t-item-int-index-and-removeat-ref-t-array-int-index">
+<h2>Insert(ref T[] array, T item, int index) and RemoveAt(ref T[] array, int index)<a class="headerlink" href="#insert-ref-t-array-t-item-int-index-and-removeat-ref-t-array-int-index" title="Permalink to this headline">¶</a></h2>
+<p><strong>Insert</strong> adds an item in the specified index, and moves all items in the array one index lower, expanding the array by one.
+<strong>RemoveAt</strong> removes the item at the specified index, moves all lower items in the array one index up, and shrinks the array.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ArrayUtils-only content.
+Equivalent to List&lt;T&gt;.Insert() and List&lt;T&gt;.RemoveAt() for arrays, respectively.</p>
+</div>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools.Utilities</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="kt">string</span><span class="p">[]</span> <span class="n">array</span> <span class="p">=</span>
+    <span class="p">{</span>
+        <span class="s">&quot;Text 0&quot;</span><span class="p">,</span> <span class="s">&quot;Text 1&quot;</span><span class="p">,</span> <span class="s">&quot;Text 2&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Text 3&quot;</span><span class="p">,</span> <span class="s">&quot;Text 4&quot;</span><span class="p">,</span> <span class="s">&quot;Text 5&quot;</span>
+    <span class="p">};</span>
+
+    <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Array is set to</span>
+        <span class="c1">// [ &quot;Text 0&quot;, &quot;Text 1&quot;, &quot;Text 2&quot;, &quot;Inserted Text&quot;, &quot;Text 3&quot;, &quot;Text 4&quot;, &quot;Text 5&quot; ]</span>
+        <span class="n">IvyArrayUtils</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="k">ref</span> <span class="n">array</span><span class="p">,</span> <span class="s">&quot;Inserted Text&quot;</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>
+
+        <span class="c1">// Array is set to</span>
+        <span class="c1">// [ &quot;Text 0&quot;, &quot;Text 1&quot;, &quot;Text 2&quot;, &quot;Text 3&quot;, &quot;Text 4&quot;, &quot;Text 5&quot; ]</span>
+        <span class="n">IvyArrayUtils</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="k">ref</span> <span class="n">array</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="moveup-ref-t-list-t-array-int-index-and-movedown-ref-t-list-t-array-int-index">
+<h2>MoveUp(ref T[]/List&lt;T&gt; array, int index) and MoveDown(ref T[]/List&lt;T&gt; array, int index)<a class="headerlink" href="#moveup-ref-t-list-t-array-int-index-and-movedown-ref-t-list-t-array-int-index" title="Permalink to this headline">¶</a></h2>
+<p><strong>MoveUp</strong> swaps the item at index with the one an index above. If index is 0, the item will be swapped with the last entry in the array.
+<strong>MoveDown</strong> swaps the item at index with the one an index below. If index is array.Length - 1 (the last index), the item will be swapped with the first entry in the array.</p>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools.Utilities</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="kt">string</span><span class="p">[]</span> <span class="n">array</span> <span class="p">=</span>
+    <span class="p">{</span>
+        <span class="s">&quot;Text 0&quot;</span><span class="p">,</span> <span class="s">&quot;Text 1&quot;</span><span class="p">,</span> <span class="s">&quot;Text 2&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Text 3&quot;</span><span class="p">,</span> <span class="s">&quot;Text 4&quot;</span><span class="p">,</span> <span class="s">&quot;Text 5&quot;</span>
+    <span class="p">};</span>
+
+    <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">list</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span>
+    <span class="p">{</span>
+        <span class="s">&quot;Text 0&quot;</span><span class="p">,</span> <span class="s">&quot;Text 1&quot;</span><span class="p">,</span> <span class="s">&quot;Text 2&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Text 3&quot;</span><span class="p">,</span> <span class="s">&quot;Text 4&quot;</span><span class="p">,</span> <span class="s">&quot;Text 5&quot;</span>
+    <span class="p">};</span>
+
+    <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Array is set to</span>
+        <span class="c1">// [ &quot;Text 0&quot;, &quot;Text 2&quot;, &quot;Text 1&quot;, &quot;Text 3&quot;, &quot;Text 4&quot;, &quot;Text 5&quot; ]</span>
+        <span class="n">IvyArrayUtils</span><span class="p">.</span><span class="n">MoveUp</span><span class="p">(</span><span class="k">ref</span> <span class="n">array</span><span class="p">,</span> <span class="m">2</span><span class="p">);</span>
+
+        <span class="c1">// List is set to</span>
+        <span class="c1">// [ &quot;Text 0&quot;, &quot;Text 1&quot;, &quot;Text 3&quot;, &quot;Text 2&quot;, &quot;Text 4&quot;, &quot;Text 5&quot; ]</span>
+        <span class="n">IvyListUtils</span><span class="p">.</span><span class="n">MoveDown</span><span class="p">(</span><span class="k">ref</span> <span class="n">list</span><span class="p">,</span> <span class="m">2</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="offsetup-ref-t-list-t-array-int-steps-and-offsetdown-ref-t-list-t-array-int-steps">
+<h2>OffsetUp(ref T[]/List&lt;T&gt; array, int steps) and OffsetDown(ref T[]/List&lt;T&gt; array, int steps)<a class="headerlink" href="#offsetup-ref-t-list-t-array-int-steps-and-offsetdown-ref-t-list-t-array-int-steps" title="Permalink to this headline">¶</a></h2>
+<p><strong>OffsetUp</strong> moves all values up on the array as many times as specified.
+<strong>OffsetDown</strong> moves all items down on the array as many times as specified.</p>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="kt">string</span><span class="p">[]</span> <span class="n">array</span> <span class="p">=</span>
+    <span class="p">{</span>
+        <span class="s">&quot;Text 0&quot;</span><span class="p">,</span> <span class="s">&quot;Text 1&quot;</span><span class="p">,</span> <span class="s">&quot;Text 2&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Text 3&quot;</span><span class="p">,</span> <span class="s">&quot;Text 4&quot;</span><span class="p">,</span> <span class="s">&quot;Text 5&quot;</span>
+    <span class="p">};</span>
+
+    <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">list</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span>
+    <span class="p">{</span>
+        <span class="s">&quot;Text 0&quot;</span><span class="p">,</span> <span class="s">&quot;Text 1&quot;</span><span class="p">,</span> <span class="s">&quot;Text 2&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Text 3&quot;</span><span class="p">,</span> <span class="s">&quot;Text 4&quot;</span><span class="p">,</span> <span class="s">&quot;Text 5&quot;</span>
+    <span class="p">};</span>
+
+    <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Array is set to</span>
+        <span class="c1">// [ &quot;Text 1&quot;, &quot;Text 2&quot;, &quot;Text 3&quot;, &quot;Text 4&quot;, &quot;Text 5&quot;, &quot;Text 0&quot; ]</span>
+        <span class="n">IvyArrayUtils</span><span class="p">.</span><span class="n">OffsetUp</span><span class="p">(</span><span class="k">ref</span> <span class="n">array</span><span class="p">);</span>
+
+        <span class="c1">// List is set to</span>
+        <span class="c1">// [ &quot;Text 4&quot;, &quot;Text 5&quot;, &quot;Text 0&quot;, &quot;Text 1&quot;, &quot;Text 2&quot;, &quot;Text 3&quot; ]</span>
+        <span class="n">IvyListUtils</span><span class="p">.</span><span class="n">OffsetDown</span><span class="p">(</span><span class="k">ref</span> <span class="n">list</span><span class="p">,</span> <span class="m">2</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="other-utilities">
+<h2><strong>OTHER UTILITIES</strong><a class="headerlink" href="#other-utilities" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IvyArrayUtils and IvyListUtils</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ioutils.html">IvyIOUtils</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="logutils.html">IvyLogUtils</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="get-help">
+<h2><strong>GET HELP</strong><a class="headerlink" href="#get-help" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://discord.gg/CvG3p7Q">Join this Discord server</a> to get help, suggest new features, and vote on future updates!</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Ivy Core</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Igor Vasiak.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/pages/utilities/arrayutils-and-listutils.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Physics Extensions &#8212; Ivy Core 1.0.0 documentation</title>
+    <title>ParticleSystem Extensions &#8212; Ivy Core 1.0.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -30,13 +30,14 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="physics-extensions">
-<h1>Physics Extensions<a class="headerlink" href="#physics-extensions" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="particlesystem-extensions">
+<h1>ParticleSystem Extensions<a class="headerlink" href="#particlesystem-extensions" title="Permalink to this headline">¶</a></h1>
+<p>You can avoid the pain of changing values on the particle system with these extensions. Think of when you want to change a single value in the Particle System - it’s a beureaucratic process that has to ve repeated every single time you want to modify something. Repetitive code is considered bad for a number of reasons. Bugs are way more common, and it’s much harder to manage so much repeated code in many places. Issues and errors slip through much easier than in a properly managed code. More extensions and other features will be added in the future. Visit the Roadmap to know more.</p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference internal" href="#clampvelocity"><span class="std std-ref">ClampVelocity</span></a></p></li>
+<li><p><a class="reference internal" href="#setmainstartcolor"><span class="std std-ref">SetMainStartColor</span></a></p></li>
 <li><p><span class="xref std std-ref">Other Extensions</span></p></li>
 <li><p><span class="xref std std-ref">Get Help</span></p></li>
 </ul>
@@ -45,13 +46,19 @@
 <div class="section" id="extensions">
 <h2><strong>EXTENSIONS</strong><a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="clampvelocity">
-<h2>ClampVelocity<a class="headerlink" href="#clampvelocity" title="Permalink to this headline">¶</a></h2>
-<p>Clamps the Rigidbody’s velocity. There are some variants for this method.</p>
+<div class="section" id="setmainstartcolor">
+<h2>SetMainStartColor<a class="headerlink" href="#setmainstartcolor" title="Permalink to this headline">¶</a></h2>
+<p>There are many variants of the above mentioned methods. They do all the work of changing the starting color values in the particle system for you.</p>
 <ul class="simple">
-<li><p><strong>ClampVelocity(float min, float max)</strong></p></li>
-<li><p><strong>ClampVelocity(Vector2 min, Vector2 max)</strong> - Rigidbody2D-only.</p></li>
-<li><p><strong>ClampVelocity(Vector3 min, Vector3 max)</strong> - Rigidbody-only.</p></li>
+<li><p><strong>SetMainStartColor(ParticleSystem.GradientMinMax grad)</strong> - Sets the main.startColor property.</p></li>
+<li><p><strong>SetMainStartColorConstant(Color color)</strong> - Sets the main.startColor.constant property.</p></li>
+<li><p><strong>SetMainStartGradientConstant(Gradient grad)</strong> - Sets the main.startColor.gradient property.</p></li>
+<li><p><strong>SetMainStartGradientMax(Gradient max)</strong> - Sets the main.startColor.gradientMax property.</p></li>
+<li><p><strong>SetMainStartGradientMin(Gradient min)</strong> - Sets the main.startColor.gradientMin property.</p></li>
+<li><p><strong>SetMainStartGradientMinMax(Gradient min, Gradient max)</strong> - Sets both the main.startColor.gradientMax and main.startColor.gradientMin properties.</p></li>
+<li><p><strong>SetMainStartColorMax(Color max)</strong> - Sets the main.startColor.colorMax property.</p></li>
+<li><p><strong>SetMainStartColorMin(Color min)</strong> - Sets the main.startColor.colorMin property.</p></li>
+<li><p><strong>SetMainStartColorMinMax(Color min, Color max)</strong> - Sets both the main.startColor.colorMin and main.startColor.colorMax properties.</p></li>
 </ul>
 <div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -66,22 +73,18 @@
 11
 12
 13
-14
-15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools</span><span class="p">;</span>
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 
 <span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
 <span class="p">{</span>
-    <span class="n">Rigidbody</span> <span class="n">rbody</span><span class="p">;</span>
-    <span class="n">Rigidbody2D</span> <span class="n">rbody2d</span><span class="p">;</span>
+    <span class="n">ParticleSystem</span> <span class="n">system</span><span class="p">;</span>
 
     <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
     <span class="p">{</span>
-        <span class="c1">// ...</span>
-        <span class="n">rbody</span><span class="p">.</span><span class="n">ClampVelocity</span><span class="p">(-</span><span class="m">3f</span><span class="p">,</span> <span class="m">3f</span><span class="p">);</span>
-        <span class="n">rbody2d</span><span class="p">.</span><span class="n">ClampVelocity</span><span class="p">(</span><span class="k">new</span> <span class="n">Vector2</span><span class="p">(-</span><span class="m">3f</span><span class="p">,</span> <span class="p">-</span><span class="m">5f</span><span class="p">),</span> <span class="k">new</span> <span class="n">Vector2</span><span class="p">(</span><span class="m">3f</span><span class="p">,</span> <span class="m">5f</span><span class="p">));</span>
-        <span class="c1">// ...</span>
+        <span class="n">system</span><span class="p">.</span><span class="n">SetMainStartColorConstant</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">yellow</span><span class="p">);</span> <span class="c1">// Single extension example.</span>
+        <span class="n">system</span><span class="p">.</span><span class="n">SetMainStartColorMin</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">green</span><span class="p">)</span>
+              <span class="p">.</span><span class="n">SetMainStartColorMax</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">white</span><span class="p">);</span> <span class="c1">// Chaining example.</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -94,8 +97,8 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="array-and-list.html">Array and List Extensions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="gameobject-and-component.html">GameObject and Component Extensions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="particlesystem.html">ParticleSystem Extensions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Physics Extensions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ParticleSystem Extensions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="physics.html">Physics Extensions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="value.html">Value Extensions</a></li>
 </ul>
 </div>
@@ -161,7 +164,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../_sources/pages/extensions/physics.rst.txt"
+      <a href="../../_sources/pages/extensions/particlesystem.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

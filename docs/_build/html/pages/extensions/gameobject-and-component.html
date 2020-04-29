@@ -31,28 +31,64 @@
           <div class="body" role="main">
             
   <div class="section" id="gameobject-and-component-extensions">
-<h1><a class="toc-backref" href="#id1">GameObject and Component Extensions</a><a class="headerlink" href="#gameobject-and-component-extensions" title="Permalink to this headline">¶</a></h1>
+<h1>GameObject and Component Extensions<a class="headerlink" href="#gameobject-and-component-extensions" title="Permalink to this headline">¶</a></h1>
 <p>These extensions are quality of life features for Components and GameObjects. Currently there are only a few extensions, but in the future more features will make their way into Ivy Core. These extensions are chainable.</p>
-<div class="contents topic" id="contents">
-<p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#gameobject-and-component-extensions" id="id1">GameObject and Component Extensions</a></p>
-<ul>
-<li><p><a class="reference internal" href="#parent-and-unparent" id="id2">Parent and Unparent</a></p></li>
-<li><p><a class="reference internal" href="#compareparent" id="id3">CompareParent</a></p></li>
-<li><p><a class="reference internal" href="#other-extensions" id="id4">Other Extensions</a></p></li>
-<li><p><a class="reference internal" href="#get-help" id="id5">Get Help</a></p></li>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#bool-compareparent-gameobject-component-other"><span class="std std-ref">CompareParent</span></a></p></li>
+<li><p><a class="reference internal" href="#parent-unparent-and-setactive"><span class="std std-ref">Parent, Unparent, and SetActive</span></a></p></li>
+<li><p><a class="reference internal" href="value.html#other-extensions"><span class="std std-ref">Other Extensions</span></a></p></li>
+<li><p><span class="xref std std-ref">Get Help</span></p></li>
 </ul>
-</li>
-</ul>
+</div></blockquote>
 </div>
-<div class="section" id="parent-and-unparent">
-<h2><a class="toc-backref" href="#id2">Parent and Unparent</a><a class="headerlink" href="#parent-and-unparent" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="extensions">
+<h2><strong>EXTENSIONS</strong><a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="bool-compareparent-gameobject-component-other">
+<h2>bool CompareParent(GameObject/Component other)<a class="headerlink" href="#bool-compareparent-gameobject-component-other" title="Permalink to this headline">¶</a></h2>
+<p>Compares the parents of both objects and returns true if they match eachother.</p>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">GameObject</span> <span class="n">obj</span><span class="p">;</span>
+
+    <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CompareParent</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="c1">// Do stuff…</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="parent-unparent-and-setactive">
+<h2>Parent, Unparent, and SetActive<a class="headerlink" href="#parent-unparent-and-setactive" title="Permalink to this headline">¶</a></h2>
 <p>There are many variations of these extensions. They are chainable, as can be seen in the example below.</p>
 <ul class="simple">
 <li><p><strong>Parent(Transform parent)</strong> - Sets the object’s parent to «parent».</p></li>
 <li><p><strong>Unparent()</strong> - Sets the object’s parent to the scene of the root, which is essentially «null».</p></li>
-<li><p><strong>SetActive(bool state)</strong> - Component-only. Sets the component GameObject’s active state.</p></li>
+<li><p><strong>SetActive(bool state)</strong> - Component-only. Sets the component’s GameObject’s active state.</p></li>
 <li><p><strong>ParentAndSetActive(Transform parent, bool state)</strong> - Sets both the object’s parent and active state.</p></li>
 <li><p><strong>UnparentAndSetActive(bool state)</strong> - Sets the object’s parent to «null» and the active state to «state».</p></li>
 </ul>
@@ -96,72 +132,21 @@
 </pre></div>
 </td></tr></table></div>
 </div>
-<div class="section" id="compareparent">
-<h2><a class="toc-backref" href="#id3">CompareParent</a><a class="headerlink" href="#compareparent" title="Permalink to this headline">¶</a></h2>
-<p>bool CompareParent(GameObject/Component other) - Compares the parents of both objects and returns true if they match eachother.</p>
-<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
-
-<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="n">GameObject</span> <span class="n">obj</span><span class="p">;</span>
-
-    <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">CompareParent</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
-        <span class="p">{</span>
-            <span class="c1">// Do stuff…</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table></div>
-</div>
+<hr class="docutils" />
 <div class="section" id="other-extensions">
-<h2><a class="toc-backref" href="#id4">Other Extensions</a><a class="headerlink" href="#other-extensions" title="Permalink to this headline">¶</a></h2>
+<h2><strong>OTHER EXTENSIONS</strong><a class="headerlink" href="#other-extensions" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="array-and-list.html">Array and List Extensions</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">GameObject and Component Extensions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="physics.html">Physics Extensions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="value.html">Value Extensions</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="physics.html">Physics Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="value.html">Value Extensions</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">GameObject and Component Extensions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="array-and-list.html">Array and List Extensions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="physics.html">Physics Extensions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="value.html">Value Extensions</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="physics.html">Physics Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="value.html">Value Extensions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="physics.html">Physics Extensions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="value.html">Value Extensions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="array-and-list.html">Array and List Extensions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GameObject and Component Extensions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="particlesystem.html">ParticleSystem Extensions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="physics.html">Physics Extensions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="value.html">Value Extensions</a></li>
 </ul>
 </div>
 </div>
 <div class="section" id="get-help">
-<h2><a class="toc-backref" href="#id5">Get Help</a><a class="headerlink" href="#get-help" title="Permalink to this headline">¶</a></h2>
+<h2><strong>GET HELP</strong><a class="headerlink" href="#get-help" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://discord.gg/CvG3p7Q">Join this Discord server</a> to get help, suggest new features, and vote on future updates!</p>
 </div>
 </div>

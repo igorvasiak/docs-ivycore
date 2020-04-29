@@ -6,10 +6,25 @@ These extensions will shorten the code by a large chunk, make the code readable,
 
 Some extensions may seem redundant like First and Convert, which are both present under the System.Linq namespace. While that's true, Linq treats most - if not all - collection extensions as IEnumerables, while Ivy Core treats arrays and lists separately, making implementation easier to understand.
 
-.. contents::
+Overview
+--------
+
+    * :ref:`AtOrFirst, AtOrLast, and AtOrDefault`
+    * :ref:`ContainsIndex <bool ContainsIndex(int index)>`
+    * :ref:`Convert <T2 Convert<T1, T2>() where T1: T2>`
+    * :ref:`First, Last, SetFirst, and SetLast`
+    * :ref:`GetTypes <Type[] GetTypes()>`
+    * :ref:`ListItems <string ListItems()>`
+    * :ref:`Next, Previous, and Random <Next, Previous, and Random (Index, Set, and References)>`
+    * :ref:`ParentAll, UnparentAll, and SetActiveAll`
+    * :ref:`Other Extensions <**OTHER EXTENSIONS**>`
+    * :ref:`Get Help <**GET HELP**>`
+
+**EXTENSIONS**
+--------------
 
 AtOrFirst, AtOrLast, and AtOrDefault
----------------------------------------------------------------------
+------------------------------------
 
 * **T AtOrFirst(int index)** - Returns the item at the given index or the first in the array if none is found.
 * **T AtOrLast(int index)** - Returns the first item at the given index or the last item in the array if none is found.
@@ -40,10 +55,10 @@ AtOrFirst, AtOrLast, and AtOrDefault
         }
     }
 
-ContainsIndex
--------------
+bool ContainsIndex(int index)
+-----------------------------
 
-* **bool ContainsIndex(int index)** - Tells if the array contains a specific index.
+Tells if the array contains a specific index.
 
 .. code-block:: csharp
     :linenos:
@@ -69,10 +84,10 @@ ContainsIndex
         }
     }
 
-Convert
--------
+T2 Convert<T1, T2>() where T1: T2
+---------------------------------
 
-* **T2 Convert<T1, T2>() where T1: T2** - Converts the array of type T1 to an array of type T2 via casting. T1 must be inherited from T2.
+Converts the array of type T1 to an array of type T2 via casting. T1 must be inherited from T2.
 
 .. code-block:: csharp
     :linenos:
@@ -92,8 +107,8 @@ Convert
         }
     }
 
-First, Last, SetFirst, SetLast
-------------------------------
+First, Last, SetFirst, and SetLast
+----------------------------------
 
 * **T First()** - Retrieves the first element of the array (array[0]).
 * **T Last()** - Retrieves the last element of the array (array[array.Length - 1]).
@@ -125,10 +140,10 @@ First, Last, SetFirst, SetLast
         }
     }
 
-GetTypes
---------
+Type[] GetTypes()
+-----------------
 
-* **Type[] GetTypes()** - Returns an array with the types of the items stored inside of the original array.
+Returns an array with the types of the items stored inside of the original array.
 
 .. code-block:: csharp
     :linenos:
@@ -148,10 +163,10 @@ GetTypes
         }
     }
 
-ListItems
----------
-
-* **string ListItems()** - Returns a readable string version of the array.
+string ListItems()
+------------------
+ 
+Returns a readable string version of the array.
 
 .. code-block:: csharp
     :linenos:
@@ -273,11 +288,14 @@ They control parenting and the active state of the object. Here are the many var
         }
     }
 
-OTHER EXTENSIONS
-----------------
+****
+
+**OTHER EXTENSIONS**
+--------------------
 
 .. toctree::
     :titlesonly:
+    :maxdepth: 1
 
     Array and List Extensions <array-and-list>
     GameObject and Component Extensions <gameobject-and-component>
@@ -285,7 +303,7 @@ OTHER EXTENSIONS
     Physics Extensions <physics>
     Value Extensions <value>
 
-Get Help
---------
+**GET HELP**
+------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!

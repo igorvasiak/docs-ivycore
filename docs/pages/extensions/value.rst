@@ -14,11 +14,11 @@ Overview
     * :ref:`Logic`
     * :ref:`ToVec`
     * :ref:`WithX/Y/Z/W`
-    * :ref:`Other Extensions`
-    * :ref:`Get Help`
+    * :ref:`Other Extensions <**OTHER EXTENSIONS**>`
+    * :ref:`Get Help <**GET HELP**>`
 
 **EXTENSIONS**
-**********
+--------------
 
 Add and Sub
 -----------
@@ -79,8 +79,8 @@ Returns the closest point in an array of floats, ints, and vectors.
 Dir and Dist
 ------------
 
-* **Dir2(other), Dir(other), and Dir4(other)** - Dir methods return the direction from point a to b (non normalized).
-* **Dist2(other, bool sqr = true), Dist(other, bool sqr = true), and Dist4(other, bool sqr = true)** - Dist methods return the square distance between two points.
+* **Dir, Dir2, and Dir4(other)** - Dir methods return the direction from point a to b (non normalized).
+* **Dist, Dist2, and Dist4(other, bool sqr = true)** - Dist methods return the square distance between two points.
 
 You can call them from components, vectors, and GameObjects.
 
@@ -263,16 +263,22 @@ Return a new vector with the respective field set to the provided value. They su
         }
     }
 
-**OTHER EXTENSIONS**
-****************
+****
 
-* `Array and List Extensions <array-and-list>`_
-* `GameObject and Component Extensions <gameobject-and-component>`_
-* `ParticleSystem Extensions <particlesystem>`_
-* `Physics Extensions <physics>`_
-* `Value Extensions <value>`_
+**OTHER EXTENSIONS**
+--------------------
+
+.. toctree::
+    :titlesonly:
+    :maxdepth: 1
+
+    Array and List Extensions <array-and-list>
+    GameObject and Component Extensions <gameobject-and-component>
+    ParticleSystem Extensions <particlesystem>
+    Physics Extensions <physics>
+    Value Extensions <value>
 
 **GET HELP**
-********
+------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
