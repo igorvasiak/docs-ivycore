@@ -10,11 +10,13 @@ Welcome to Ivy Core's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   pages/inviting-the-bot
+   pages/getting-started
+   pages/
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
+* :ref:`pages/extensions/value`
 * :ref:`search`
