@@ -21,13 +21,12 @@ Make sure that the main folder of the asset, Ivy Tools, is at the root of your A
 
 You should now be ready to go! Now here are a few links that may help you to know more about Ivy Core!
 
+Here are some links to help you getting started!
+
 The Roadmap
 
 * :ref:`Attributes`
 * :ref:`Extensions <about-extensions>`
-
-Utilities
-Values
 
 ****
 
