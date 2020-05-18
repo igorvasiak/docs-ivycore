@@ -6,7 +6,6 @@ Overview
 --------
 
     * :ref:`ClampVelocity`
-    * :ref:`Other Extensions <OTHER EXTENSIONS>`
     * :ref:`Get Help <GET HELP>`  
 
 **EXTENSIONS**
@@ -15,11 +14,11 @@ Overview
 ClampVelocity
 -------------
 
-Clamps the Rigidbody's velocity. There are some variants for this method.
+* ``ClampVelocity(float min, float max)``
+* ``ClampVelocity(Vector2 min, Vector2 max)`` - **Rigidbody2D-Only**
+* ``ClampVelocity(Vector3 min, Vector3 max)`` - **Rigidbody-Only**
 
-* **ClampVelocity(float min, float max)**
-* **ClampVelocity(Vector2 min, Vector2 max)** - Rigidbody2D-only.
-* **ClampVelocity(Vector3 min, Vector3 max)** - Rigidbody-only.
+Clamps the Rigidbody's velocity. There are some variants for this method.
 
 .. code-block:: csharp
     :linenos:
@@ -43,20 +42,15 @@ Clamps the Rigidbody's velocity. There are some variants for this method.
 
 ****
 
-**OTHER EXTENSIONS**
---------------------
-
-.. toctree::
-    :titlesonly:
-    :maxdepth: 1
-
-    Array and List Extensions <array-and-list>
-    GameObject and Component Extensions <gameobject-and-component>
-    ParticleSystem Extensions <particlesystem>
-    Physics Extensions <physics>
-    Value Extensions <value>
-
 **GET HELP**
 ------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+
+.. seealso::
+    
+    * :ref:`Array and List Extensions <array-and-list>`
+    * :ref:`GameObject and Component Extensions <gameobject-and-component>`
+    * :ref:`ParticleSystem Extensions <particlesystem>`
+    * :ref:`Texture Extensions <texture>`
+    * :ref:`Value Extensions <value>`

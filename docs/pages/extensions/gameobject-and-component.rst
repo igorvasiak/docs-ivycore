@@ -7,16 +7,17 @@ These extensions are quality of life features for Components and GameObjects. Cu
 Overview
 --------
 
-    * :ref:`CompareParent <bool CompareParent(GameObject/Component other)>` 
+    * :ref:`CompareParent` 
     * :ref:`Parent, Unparent, and SetActive`
-    * :ref:`Other Extensions <**OTHER EXTENSIONS**>` 
     * :ref:`Get Help <GET HELP>` 
 
 **EXTENSIONS**
 --------------
 
-bool CompareParent(GameObject/Component other)
-----------------------------------------------
+CompareParent
+-------------
+
+* ``bool CompareParent(GameObject/Component other)``
 
 Compares the parents of both objects and returns true if they match eachother.
 
@@ -44,11 +45,25 @@ Parent, Unparent, and SetActive
 
 There are many variations of these extensions. They are chainable, as can be seen in the example below.
 
-* **Parent(Transform parent)** - Sets the object's parent to «parent».
-* **Unparent()** - Sets the object's parent to the scene of the root, which is essentially «null».
-* **SetActive(bool state)** - Component-only. Sets the component's GameObject's active state.
-* **ParentAndSetActive(Transform parent, bool state)** - Sets both the object's parent and active state.
-* **UnparentAndSetActive(bool state)** - Sets the object's parent to «null» and the active state to «state».
+* ``Parent(Transform parent)``
+
+Sets the object's parent to "parent".
+
+* ``Unparent()``
+
+Sets the object's parent to the scene of the root, which is essentially "null".
+
+* ``SetActive(bool state)`` - **Component-Only**
+
+Sets the component's GameObject's active state.
+
+* ``ParentAndSetActive(Transform parent, bool state)``
+
+Sets both the object's parent and active state.
+
+* ``UnparentAndSetActive(bool state)``
+
+Sets the object's parent to «null» and the active state to «state».
 
 .. code-block:: csharp
     :linenos:
@@ -75,20 +90,18 @@ There are many variations of these extensions. They are chainable, as can be see
 
 ****
 
-**OTHER EXTENSIONS**
---------------------
-
-.. toctree::
-    :titlesonly:
-    :maxdepth: 1
-
-    Array and List Extensions <array-and-list>
-    GameObject and Component Extensions <gameobject-and-component>
-    ParticleSystem Extensions <particlesystem>
-    Physics Extensions <physics>
-    Value Extensions <value>
-
 **GET HELP**
 ------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+
+.. seealso::
+
+    * :ref:`Array and List Extensions <array-and-list>`
+    * :ref:`GameObject and Component Extensions <gameobject-and-component>`
+    * :ref:`Physics Extensions <physics>`
+    * :ref:`Texture Extensions <texture>`
+    * :ref:`Value Extensions <value>`
+
+    * :ref:`Transform.SetParent()`
+    * :ref:`GameObject.SetActive()`

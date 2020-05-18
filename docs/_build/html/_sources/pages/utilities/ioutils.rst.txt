@@ -5,21 +5,25 @@ IvyIOUtils
 Overview
 --------
 
-* :ref:`GetIndexedPath <string GetIndexedPath(string path, string fileName, string extension, int index)>`
-* :ref:`LoadSprite <Sprite LoadSprite(string path, int width, int height)>`
+* :ref:`GetIndexedPath`
+* :ref:`LoadSprite`
 * :ref:`LoadToNullSprite and TryLoadToNullSprite`
-* :ref:`LoadTexture <Texture2D LoadTexture(string path, int width, int height)>`
+* :ref:`LoadTexture`
 * :ref:`LoadToNullTexture and TryLoadToNullTexture`
-* :ref:`Other Utilities <OTHER UTILITIES>`
-* :ref:`Get Help <GET HELP>`
+* :ref:`Get Help <**GET HELP**>`
 
 **UTILITIES**
 -------------
 
-string GetIndexedPath(string path, string fileName, string extension, int index)
---------------------------------------------------------------------------------
+GetIndexedPath
+--------------
 
-Returns the path of the file with an index that hasn't been used yet. For example, if you pass the values to get the indexed path of «file.txt», and it already exists, you'll get «file 1.txt». If many more already exist, you'll get the next possible index. It looks for the file name recursively, recalling itself as many times as it is needed.
+* ``string GetIndexedPath(string path, string fileName, string extension, int index)``
+
+Returns the path of the file with an index that hasn't been used yet.
+For example, if you pass the values to get the indexed path of «file.txt», and it already exists, you'll get «file 1.txt».
+If many more already exist, you'll get the next possible index.
+It looks for the file name recursively, recalling itself as many times as needed.
 
 .. code-block:: csharp
     :linenos:
@@ -41,8 +45,10 @@ Returns the path of the file with an index that hasn't been used yet. For exampl
         }
     }
 
-Sprite LoadSprite(string path, int width, int height)
------------------------------------------------------
+LoadSprite
+----------
+
+* ``Sprite LoadSprite(string path, int width, int height)``
 
 Loads the sprite located at "path" with the provided resolution.
 
@@ -63,8 +69,13 @@ Loads the sprite located at "path" with the provided resolution.
 LoadToNullSprite and TryLoadToNullSprite
 ----------------------------------------
 
-* **Texture2D LoadToNullSprite(ref Sprite sprite, string path, int width, int height)** - Loads the image and sets sprite if sprite is null. It returns sprite even if not null.
-* **bool TryLoadToNullSprite(ref Sprite sprite, string path, int width, int height)** - Loads the image and sets sprite if sprite is null. It returns wether it set tex or not.
+* ``Texture2D LoadToNullSprite(ref Sprite sprite, string path, int width, int height)``
+
+Loads the image and sets sprite if sprite is null. It returns sprite even if not null.
+
+* ``bool TryLoadToNullSprite(ref Sprite sprite, string path, int width, int height)``
+
+Loads the image and sets sprite if sprite is null. It returns wether tex has been set or not.
 
 .. code-block:: csharp
     :linenos:
@@ -86,8 +97,10 @@ LoadToNullSprite and TryLoadToNullSprite
         }
     }
 
-Texture2D LoadTexture(string path, int width, int height)
----------------------------------------------------------
+LoadTexture
+-----------
+
+* ``Texture2D LoadTexture(string path, int width, int height)``
 
 Loads the image located at "path" with the provided resolution.
 
@@ -108,8 +121,13 @@ Loads the image located at "path" with the provided resolution.
 LoadToNullTexture and TryLoadToNullTexture
 ------------------------------------------
 
-* **Texture2D LoadToNullTexture(ref Texture2D tex, string path, int width, int height)** - Loads the texture and sets tex if tex is null. It returns tex even if not null.
-* **bool TryLoadToNullTexture(ref Texture2D tex, string path, int width, int height)** - Loads the texture and sets tex if tex is null. It returns wether it set tex or not.
+* ``Texture2D LoadToNullTexture(ref Texture2D tex, string path, int width, int height)``
+
+Loads the texture and sets tex if tex is null. It returns tex even if not null.
+
+* ``bool TryLoadToNullTexture(ref Texture2D tex, string path, int width, int height)``
+
+Loads the texture and sets tex if tex is null. It returns wether it set tex or not.
 
 .. code-block:: csharp
     :linenos:
@@ -133,18 +151,12 @@ LoadToNullTexture and TryLoadToNullTexture
 
 ****
 
-**OTHER UTILITIES**
---------------------
-
-.. toctree::
-    :titlesonly:
-    :maxdepth: 1
-
-    IvyArrayUtils and IvyListUtils <arrayutils-and-listutils>
-    IvyIOUtils <ioutils>
-    IvyLogUtils <logutils>
-
 **GET HELP**
 ------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+
+.. seealso::
+
+    * :ref:`IvyArrayUtils and IvyListUtils <arrayutils-and-listutils>`
+    * :ref:`IvyLogUtils <logutils>`

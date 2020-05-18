@@ -8,7 +8,6 @@ Overview
 --------
 
     * :ref:`SetMainStartColor`
-    * :ref:`Other Extensions <OTHER EXTENSIONS>`
     * :ref:`Get Help <GET HELP>`
 
 **EXTENSIONS**
@@ -19,15 +18,41 @@ SetMainStartColor
 
 There are many variants of the above mentioned methods. They do all the work of changing the starting color values in the particle system for you.
 
-* **SetMainStartColor(ParticleSystem.GradientMinMax grad)** - Sets the main.startColor property.
-* **SetMainStartColorConstant(Color color)** - Sets the main.startColor.constant property.
-* **SetMainStartGradientConstant(Gradient grad)** - Sets the main.startColor.gradient property.
-* **SetMainStartGradientMax(Gradient max)** - Sets the main.startColor.gradientMax property.
-* **SetMainStartGradientMin(Gradient min)** - Sets the main.startColor.gradientMin property.
-* **SetMainStartGradientMinMax(Gradient min, Gradient max)** - Sets both the main.startColor.gradientMax and main.startColor.gradientMin properties.
-* **SetMainStartColorMax(Color max)** - Sets the main.startColor.colorMax property.
-* **SetMainStartColorMin(Color min)** - Sets the main.startColor.colorMin property.
-* **SetMainStartColorMinMax(Color min, Color max)** - Sets both the main.startColor.colorMin and main.startColor.colorMax properties.
+* ``SetMainStartColor(ParticleSystem.GradientMinMax grad)``
+    
+Sets the main.startColor property.
+
+* ``SetMainStartColorConstant(Color color)``
+
+Sets the main.startColor.constant property.
+
+* ``SetMainStartGradientConstant(Gradient grad)``
+
+Sets the main.startColor.gradient property.
+
+* ``SetMainStartGradientMax(Gradient max)``
+
+Sets the main.startColor.gradientMax property.
+
+* ``SetMainStartGradientMin(Gradient min)``
+
+Sets the main.startColor.gradientMin property.
+
+* ``SetMainStartGradientMinMax(Gradient min, Gradient max)``
+
+Sets both the main.startColor.gradientMax and main.startColor.gradientMin properties.
+
+* ``SetMainStartColorMax(Color max)``
+
+Sets the main.startColor.colorMax property.
+
+* ``SetMainStartColorMin(Color min)``
+
+Sets the main.startColor.colorMin property.
+
+* ``SetMainStartColorMinMax(Color min, Color max)``
+
+Sets both the main.startColor.colorMin and main.startColor.colorMax properties.
 
 .. code-block:: csharp
     :linenos:
@@ -49,20 +74,15 @@ There are many variants of the above mentioned methods. They do all the work of 
 
 ****
 
-**OTHER EXTENSIONS**
---------------------
-
-.. toctree::
-    :titlesonly:
-    :maxdepth: 1
-
-    Array and List Extensions <array-and-list>
-    GameObject and Component Extensions <gameobject-and-component>
-    ParticleSystem Extensions <particlesystem>
-    Physics Extensions <physics>
-    Value Extensions <value>
-
 **GET HELP**
 ------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+
+.. seealso::
+    
+    * :ref:`Array and List Extensions <array-and-list>`
+    * :ref:`GameObject and Component Extensions <gameobject-and-component>`
+    * :ref:`Physics Extensions <physics>`
+    * :ref:`Texture Extensions <texture>`
+    * :ref:`Value Extensions <value>`

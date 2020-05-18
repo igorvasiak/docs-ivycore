@@ -5,24 +5,25 @@ IvyArrayUtils and IvyListUtils
 Overview
 --------
 
-    * :ref:`Append <Append(ref T[] array, T item)>` 
-    * :ref:`Insert and RemoveAt <Insert(ref T[] array, T item, int index) and RemoveAt(ref T[] array, int index)>` 
-    * :ref:`MoveUp and MoveDown <MoveUp(ref T[]/List<T> array, int index) and MoveDown(ref T[]/List<T> array, int index)>` 
-    * :ref:`OffsetUp and OffsetDown <OffsetUp(ref T[]/List<T> array, int steps) and OffsetDown(ref T[]/List<T> array, int steps)>`
-    * :ref:`Other Utilities <OTHER UTILITIES>`
-    * :ref:`Get Help <GET HELP>` 
+    * :ref:`Append` 
+    * :ref:`Insert and RemoveAt` 
+    * :ref:`MoveUp and MoveDown` 
+    * :ref:`OffsetUp and OffsetDown`
+    * :ref:`Get Help <**GET HELP**>` 
 
 **UTILITIES**
 -------------
 
-Append(ref T[] array, T item)
------------------------------
+Append
+------
+
+* ``Append(ref T[] array, T item)``
 
 Adds an item to the end of the array.
 
 .. note::
     ArrayUtils-only content.
-    Equivalent to List.Add.
+    Equivalent to ``List.Add``.
 
 .. code-block:: csharp
     :linenos:
@@ -47,15 +48,18 @@ Adds an item to the end of the array.
 
     }
 
-Insert(ref T[] array, T item, int index) and RemoveAt(ref T[] array, int index)
--------------------------------------------------------------------------------
+Insert and RemoveAt
+-------------------
+
+* ``Insert(ref T[] array, T item, int index)``
+* ``RemoveAt(ref T[] array, int index)``
 
 **Insert** adds an item in the specified index, and moves all items in the array one index lower, expanding the array by one.
 **RemoveAt** removes the item at the specified index, moves all lower items in the array one index up, and shrinks the array.
 
 .. note::
     ArrayUtils-only content.
-    Equivalent to List<T>.Insert() and List<T>.RemoveAt() for arrays, respectively.
+    Equivalent to ``List<T>.Insert()`` and ``List<T>.RemoveAt()`` for arrays, respectively.
 
 .. code-block:: csharp
     :linenos:
@@ -83,8 +87,11 @@ Insert(ref T[] array, T item, int index) and RemoveAt(ref T[] array, int index)
         }
     }
 
-MoveUp(ref T[]/List<T> array, int index) and MoveDown(ref T[]/List<T> array, int index)
----------------------------------------------------------------------------------------
+MoveUp and MoveDown
+-------------------
+
+* ``MoveUp(ref T[]/List<T> array, int index)``
+* ``MoveDown(ref T[]/List<T> array, int index)``
 
 **MoveUp** swaps the item at index with the one an index above. If index is 0, the item will be swapped with the last entry in the array. 
 **MoveDown** swaps the item at index with the one an index below. If index is array.Length - 1 (the last index), the item will be swapped with the first entry in the array.
@@ -121,8 +128,11 @@ MoveUp(ref T[]/List<T> array, int index) and MoveDown(ref T[]/List<T> array, int
         }
     }
 
-OffsetUp(ref T[]/List<T> array, int steps) and OffsetDown(ref T[]/List<T> array, int steps)
--------------------------------------------------------------------------------------------
+OffsetUp and OffsetDown
+-----------------------
+
+* ``OffsetUp(ref T[]/List<T> array, int steps)``
+* ``OffsetDown(ref T[]/List<T> array, int steps)``
 
 **OffsetUp** moves all values up on the array as many times as specified.
 **OffsetDown** moves all items down on the array as many times as specified.
@@ -161,18 +171,17 @@ OffsetUp(ref T[]/List<T> array, int steps) and OffsetDown(ref T[]/List<T> array,
 
 ****
 
-**OTHER UTILITIES**
---------------------
-
-.. toctree::
-    :titlesonly:
-    :maxdepth: 1
-
-    IvyArrayUtils and IvyListUtils <arrayutils-and-listutils>
-    IvyIOUtils <ioutils>
-    IvyLogUtils <logutils>
-
 **GET HELP**
 ------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+
+.. seealso::
+
+    * `Collections <https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/collections>`_
+    * `LINQ <https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/>`_
+    * `Arrays <https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/arrays>`_
+    * `System.Array <https://docs.microsoft.com/en-us/dotnet/api/system.array?view=netcore-3.1>`_
+
+    * :ref:`IvyIOUtils <ioutils>`
+    * :ref:`IvyLogUtils <logutils>`

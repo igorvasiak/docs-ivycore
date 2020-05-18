@@ -1,6 +1,6 @@
-===============
+==============================
 Getting Started Using Ivy Core
-===============
+==============================
 
 Ivy Core is a collection of extensions, utilities, and features that help speed up game development and write bug-free readable code while working with Unity.
 
@@ -9,7 +9,7 @@ Many times we get caught re-writing code we already wrote before, be it in small
 Ivy Core takes care of that, and even more! As explained and demonstrated in this documentation conglomerate, you can write code faster than ever.
 
 So, let's get started?
-======================
+----------------------
 
 Well, the first thing you should do is download the library. Here's a link!
 
@@ -22,7 +22,16 @@ Make sure that the main folder of the asset, Ivy Tools, is at the root of your A
 You should now be ready to go! Now here are a few links that may help you to know more about Ivy Core!
 
 The Roadmap
-Attributes
-Extensions
+
+* :ref:`Attributes`
+* :ref:`Extensions <about-extensions>`
+
 Utilities
 Values
+
+****
+
+**GET HELP**
+------------
+
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!

@@ -6,6 +6,7 @@ Overview
 --------
 
     * :ref:`EditorLog`
+    * :ref:`Get Help <**GET HELP**>`
 
 **UTILITIES**
 -------------
@@ -15,10 +16,14 @@ EditorLog
 
 These methods create messages only while running the game in the editor. That means if you try to use these logs in a build, they won't be logged.
 
-* **EditorLog(string message, Object context)** - Logs a standard message to the console.
-* **EditorLogWarning(string message, Object context)** - Logs a warning message to the console.
-* **EditorLogError(string message, Object context)** - Logs an error message to the console.
-* **EditorLogException(Exception exception, Object context)** - Logs an exception to the console.
+* ``EditorLog(string message, Object context)``
+    * Logs a standard message to the console.
+* ``EditorLogWarning(string message, Object context)``
+    * Logs a warning message to the console.
+* ``EditorLogError(string message, Object context)``
+    * Logs an error message to the console.
+* ``EditorLogException(Exception exception, Object context)``
+    * Logs an exception to the console.
 
 .. code-block:: csharp
     :linenos:
@@ -52,18 +57,12 @@ These methods create messages only while running the game in the editor. That me
 
 ****
 
-**OTHER UTILITIES**
---------------------
-
-.. toctree::
-    :titlesonly:
-    :maxdepth: 1
-
-    IvyArrayUtils and IvyListUtils <arrayutils-and-listutils>
-    IvyIOUtils <ioutils>
-    IvyLogUtils <logutils>
-
 **GET HELP**
 ------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+
+.. seealso::
+
+    * :ref:`IvyArrayUtils and IvyListUtils <arrayutils-and-listutils>`
+    * :ref:`IvyIOUtils <ioutils>`

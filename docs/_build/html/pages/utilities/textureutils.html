@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>IvyTextureUtils &#8212; Ivy Core 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ivytextureutils">
+<h1>IvyTextureUtils<a class="headerlink" href="#ivytextureutils" title="Permalink to this headline">¶</a></h1>
+<p>Utilities created to help handling textures on general situations.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#createbasetexture"><span class="std std-ref">CreateBaseTexture</span></a></p></li>
+<li><p><a class="reference internal" href="#createrandomnoisetexture"><span class="std std-ref">CreateRandomNoiseTexture</span></a></p></li>
+<li><p><a class="reference internal" href="../values/register.html#get-help"><span class="std std-ref">Get Help</span></a></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="methods">
+<h2><strong>METHODS</strong><a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="createbasetexture">
+<h2>CreateBaseTexture<a class="headerlink" href="#createbasetexture" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Texture2D</span> <span class="pre">CreateBaseTexture(Color</span> <span class="pre">color)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Texture2D</span> <span class="pre">CreateBaseTexture(Color</span> <span class="pre">color,</span> <span class="pre">int</span> <span class="pre">width,</span> <span class="pre">int</span> <span class="pre">height)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Texture2D</span> <span class="pre">CreateBaseTexture(Color</span> <span class="pre">color,</span> <span class="pre">Vector2Int</span> <span class="pre">size)</span></code></p></li>
+</ul>
+<p>Creates a base texture with the provided color and size. The texture will be automatically sized to one by one if no size is given.</p>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools.Utilities</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">SpriteRenderer</span> <span class="n">wall</span><span class="p">;</span>
+
+    <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Texture2D</span> <span class="n">tex</span> <span class="p">=</span> <span class="n">CreateBaseTexture</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">white</span><span class="p">,</span> <span class="m">128</span><span class="p">,</span> <span class="m">128</span><span class="p">)</span>
+                        <span class="p">.</span><span class="n">ShiftRandomPixelsTowards</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">cyan</span><span class="p">);</span>
+        <span class="n">Sprite</span><span class="p">.</span><span class="n">Create</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="createrandomnoisetexture">
+<h2>CreateRandomNoiseTexture<a class="headerlink" href="#createrandomnoisetexture" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Texture2D</span> <span class="pre">CreateRandomNoiseTexture(int</span> <span class="pre">width,</span> <span class="pre">int</span> <span class="pre">height,</span> <span class="pre">bool</span> <span class="pre">blackAndWhite</span> <span class="pre">=</span> <span class="pre">false)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Texture2D</span> <span class="pre">CreateRandomNoiseTexture(Vector2Int</span> <span class="pre">size,</span> <span class="pre">bool</span> <span class="pre">blackAndWhite</span> <span class="pre">=</span> <span class="pre">false)</span></code></p></li>
+</ul>
+<p>Creates a texture with the given size filled with random colors.</p>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyTools.Utilities</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">SpriteRenderer</span> <span class="n">wall</span><span class="p">;</span>
+
+    <span class="k">void</span> <span class="nf">MyMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Texture2D</span> <span class="n">tex</span> <span class="p">=</span> <span class="n">CreateRandomNoiseTexture</span><span class="p">(</span><span class="m">128</span><span class="p">,</span> <span class="m">128</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span>
+                        <span class="p">.</span><span class="n">MakeBlackAndWhite</span><span class="p">();</span>
+        <span class="n">Sprite</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span><span class="n">tex</span><span class="p">,</span> <span class="k">new</span> <span class="n">Rect</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">0f</span><span class="p">,</span> <span class="m">128f</span><span class="p">,</span> <span class="m">128f</span><span class="p">),</span> <span class="k">new</span> <span class="n">Vector2</span><span class="p">(</span><span class="m">0.5f</span><span class="p">,</span> <span class="m">0.5f</span><span class="p">),</span> <span class="m">100.0f</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="get-help">
+<h2><strong>GET HELP</strong><a class="headerlink" href="#get-help" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://discord.gg/CvG3p7Q">Join this Discord server</a> to get help, suggest new features, and vote on future updates!</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p>IvyTextureExtensions</p></li>
+<li><p>Sprite.Create</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Ivy Core</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started Using Ivy Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about-extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../attributes.html">Attributes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Extensions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/array-and-list.html">Array and List Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/gameobject-and-component.html">GameObject and Component Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/particlesystem.html">ParticleSystem Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/physics.html">Physics Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/value.html">Value Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utilities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arrayutils-and-listutils.html">IvyArrayUtils and IvyListUtils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ioutils.html">IvyIOUtils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logutils.html">LogUtils</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Values</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../values/holiday.html">Holiday</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../values/register.html">Register&lt;T&gt;</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Editor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../editor/bootstrap.html">Bootstrap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editor/ivyeditorcolors.html">IvyEditorColors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editor/ivygui.html">IvyGUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editor/ivyguilayout.html">IvyGUILayout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editor/ivyguiutility.html">IvyGUIUtility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editor/ivystyles.html">IvyStyles</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Igor Vasiak.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/pages/utilities/textureutils.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

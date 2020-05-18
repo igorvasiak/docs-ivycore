@@ -11,7 +11,6 @@ Overview
         * :ref:`IsHoliday <bool IsHoliday(Holiday holiday)>`
     * :ref:`Properties <**PROPERTIES**>`
         * :ref:`Pre-Defined Holidays`
-    * :ref:`Other Values <**OTHER VALUES**>`
     * :ref:`Get Help <**GET HELP**>`
     
 **FIELDS**
@@ -134,16 +133,11 @@ Pre-Defined Holidays
 
 ****
 
-**OTHER VALUES**
-----------------
-
-.. toctree::
-    :maxdepth: 1
-
-    holiday
-    register
-
 **GET HELP**
 ------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+
+.. seealso::
+
+    register

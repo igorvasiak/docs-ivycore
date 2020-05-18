@@ -43,20 +43,14 @@ Clamps the Rigidbody's velocity. There are some variants for this method.
 
 ****
 
-**OTHER EXTENSIONS**
---------------------
-
-.. toctree::
-    :titlesonly:
-    :maxdepth: 1
-
-    Array and List Extensions <array-and-list>
-    GameObject and Component Extensions <gameobject-and-component>
-    ParticleSystem Extensions <particlesystem>
-    Physics Extensions <physics>
-    Value Extensions <value>
-
 **GET HELP**
 ------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+
+.. seealso::
+    
+    Array and List Extensions <array-and-list>
+    GameObject and Component Extensions <gameobject-and-component>
+    ParticleSystem Extensions <particlesystem>
+    Value Extensions <value>

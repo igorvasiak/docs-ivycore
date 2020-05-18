@@ -12,12 +12,14 @@ Overview
     * :ref:`AtOrFirst, AtOrLast, and AtOrDefault`
     * :ref:`ContainsIndex <bool ContainsIndex(int index)>`
     * :ref:`Convert <T2 Convert<T1, T2>() where T1: T2>`
+    * :ref:`FillWith`
+    * :ref:`FillWithRandomColorsRGB/RGBA/BW/BWA`
     * :ref:`First, Last, SetFirst, and SetLast`
     * :ref:`GetTypes <Type[] GetTypes()>`
     * :ref:`ListItems <string ListItems()>`
+    * :ref:`MakeArray`
     * :ref:`Next, Previous, and Random <Next, Previous, and Random (Index, Set, and References)>`
     * :ref:`ParentAll, UnparentAll, and SetActiveAll`
-    * :ref:`Other Extensions <**OTHER EXTENSIONS**>`
     * :ref:`Get Help <**GET HELP**>`
 
 **EXTENSIONS**
@@ -26,9 +28,17 @@ Overview
 AtOrFirst, AtOrLast, and AtOrDefault
 ------------------------------------
 
-* **T AtOrFirst(int index)** - Returns the item at the given index or the first in the array if none is found.
-* **T AtOrLast(int index)** - Returns the first item at the given index or the last item in the array if none is found.
-* **T AtOrDefault(int index)** - Returns the provided index or the default value respective to the array object's type.
+``T AtOrFirst(int index)``
+
+Returns the item at the given index or the first in the array if none is found.
+
+``T AtOrLast(int index)``
+
+Returns the first item at the given index or the last item in the array if none is found.
+
+``T AtOrDefault(int index)``
+
+Returns the provided index or the default value respective to the array object's type.
 
 .. code-block:: csharp
     :linenos:
@@ -55,8 +65,10 @@ AtOrFirst, AtOrLast, and AtOrDefault
         }
     }
 
-bool ContainsIndex(int index)
------------------------------
+ContainsIndex
+-------------
+
+``bool ContainsIndex(int index)``
 
 Tells if the array contains a specific index.
 
@@ -84,10 +96,12 @@ Tells if the array contains a specific index.
         }
     }
 
-T2 Convert<T1, T2>() where T1: T2
----------------------------------
+Convert
+-------
 
-Converts the array of type T1 to an array of type T2 via casting. T1 must be inherited from T2.
+``T2 Convert<T1, T2>() where T1: T2``
+
+Converts the array of type ``T1`` to an array of type ``T2`` via casting. ``T1`` must be inherited from ``T2``.
 
 .. code-block:: csharp
     :linenos:
@@ -107,13 +121,84 @@ Converts the array of type T1 to an array of type T2 via casting. T1 must be inh
         }
     }
 
+FillWith
+--------
+
+* ``FillWith(T obj)``
+
+Fills an array with the given value.
+
+.. code-block:: csharp
+    :linenos:
+
+    using IvyTools;
+    using UnityEngine;
+
+    public class MyClass: MonoBehaviour
+    {
+        void MyMethod()
+        {
+            // ...
+            int[] values = new int[10];
+            values.FillWith(5);
+            // ...
+        }
+    }
+
+FillWithRandomColorsRGB/RGBA/BW/BWA
+-----------------------------------
+
+* ``FillWithRandomColorsRGB(this Color/Color32 color, byte/float a = 255/1f)``
+
+Fills the array with random colors. The colors will have the given alpha value.
+
+* ``FillWithRandomColorsRGBA(this Color/Color32 color)``
+
+Fills the array with random colors. The alpha is also randomized.
+
+* ``FillWithRandomColorsBW(this Color/Color32 color, byte/float a = 255/1f)``
+
+Fills the array with random black and white levels. The colors will have the given alpha value.
+
+* ``FillWithRandomColorsBWA(this Color/Color32 color)``
+
+Fills the array with black and white levels. The alpha is also randomized.
+
+.. code-block:: csharp
+    :linenos:
+
+    using IvyTools;
+    using UnityEngine;
+
+    public class MyClass: MonoBehaviour
+    {
+        void MyMethod()
+        {
+            Texture2D tex = new Texture2D(128, 128);
+            Color[] colors = FillWithRandomColorsRGB();
+            tex.SetPixels(colors);
+            tex.Apply();
+        }
+    }
+
 First, Last, SetFirst, and SetLast
 ----------------------------------
 
-* **T First()** - Retrieves the first element of the array (array[0]).
-* **T Last()** - Retrieves the last element of the array (array[array.Length - 1]).
-* **SetFirst(T item)** - Sets the first element of an array.
-* **SetLast(T item)** - Sets the last element of the array.
+``T First()``
+
+Retrieves the first element of the array (``array[0]``).
+
+``T Last()``
+
+Retrieves the last element of the array (``array[array.Length - 1]``).
+
+``SetFirst(T item)``
+
+Sets the first element of an array.
+
+``SetLast(T item)``
+
+Sets the last element of the array.
 
 .. code-block:: csharp
     :linenos:
@@ -140,8 +225,10 @@ First, Last, SetFirst, and SetLast
         }
     }
 
-Type[] GetTypes()
------------------
+GetTypes
+--------
+
+``Type[] GetTypes()``
 
 Returns an array with the types of the items stored inside of the original array.
 
@@ -163,9 +250,11 @@ Returns an array with the types of the items stored inside of the original array
         }
     }
 
-string ListItems()
-------------------
- 
+ListItems
+---------
+
+``string ListItems()``
+
 Returns a readable string version of the array.
 
 .. code-block:: csharp
@@ -189,18 +278,67 @@ Returns a readable string version of the array.
         }
     }
 
+MakeArray
+---------
+
+* ``T[] MakeArray(this T obj, int length)``
+
+Makes an array of the given size with the provided object.
+
+.. code-block:: csharp
+    :linenos:
+
+    using IvyTools;
+    using UnityEngine;
+
+    public class MyClass: MonoBehaviour
+    {
+        public Transform[] transforms = new Transform[0];
+
+        void MyMethod()
+        {
+            float[] values = 29f.MakeArray(20);
+        }
+    }
+
 Next, Previous, and Random (Index, Set, and References)
 -------------------------------------------------------
 
-* **int NextIndex(int index)** - Returns the next index relative to the provided index.
-* **int PreviousIndex(int index)** - Returns the previous index relative to the provided index.
-* **int RandomIndex()** - Returns a random index inside the boundries of the array.
-* **T Next(int index)** - Returns the next item relative to the provided index.
-* **T Previous(int index)** - Returns the previous item relative to the provided index.
-* **T Random()** - Returns a random item inside the boundries of the array.
-* **SetNext(int index, T item)** - Sets the item next to the provided array to the given item.
-* **SetPrevious(int index, T item)** - Sets the item previous to the provided array to the given item.
-* **SetRandom(T item)** - Sets a random item of the array to the given item.
+``int NextIndex(int index)``
+
+Returns the next index relative to the provided index.
+
+``int PreviousIndex(int index)``
+
+Returns the previous index relative to the provided index.
+
+``int RandomIndex()``
+
+Returns a random index inside of the boundaries of the array.
+
+``T Next(int index)``
+
+Returns the next item relative to the provided index.
+
+``T Previous(int index)``
+
+Returns the previous item relative to the provided index.
+
+``T Random()``
+
+Returns a random item inside of the boundaries of the array.
+
+``SetNext(int index, T item)``
+
+Sets the item next to the provided array to the given item.
+
+``SetPrevious(int index, T item)``
+
+Sets the item previous to the provided array to the given item.
+
+``SetRandom(T item)``
+
+Sets a random item of the array to the given item.
 
 .. note::
     All **Next** and **Previous** methods loop the array, I.e. when using **Next** at the top of the array it returns the bottom (array[0]), and when using **Previous** at the bottom of the array it returns the top (array[array.Length - 1]).
@@ -252,16 +390,45 @@ ParentAll, UnparentAll, and SetActiveAll
 
 They control parenting and the active state of the object. Here are the many variants and permutations of the above methods:
 
-* **ParentAll(Transform parent)** - Parents all objects from the array to another transform.
-* **ParentAll(Transform parent, int length)** - Parents all objects from the array up until the provided length - 1 to another transform.
-* **UnparentAll()** - Parents all objects to the root of the scene (I.e. no parent).
-* **UnparentAll(int length)** - Parents all objects up to the provided length - 1 to the root of the scene (I.e. no parent).
-* **SetActiveAll(bool state)** - Sets the objects' active state.
-* **SetActiveAll(bool state, int length)** - Sets the objects' active state up to the provided length - 1.
-* **ParentAndSetActiveAll(Transform parent, bool state)** - Sets the objects' parent to «parent» and the active state to «state».
-* **ParentAndSetActiveAll(Transform parent, bool state, int length)** - Sets the objects' parent to «parent» and the active state to «state» up until the provided length - 1.
-* **UnparentAndSetActiveAll(bool state)** - Sets the objects' parent to the root of the scene and the active state to «state».
-* **UnparentAndSetActiveAll(bool state, int length)** - Sets the objects' parent to the root of the scene and the active state to «state» up until the provided length - 1.
+``ParentAll(Transform parent)``
+
+Parents all objects from the array to another transform.
+
+``ParentAll(Transform parent, int length)``
+
+Parents all objects from the array up until the provided length - 1 to another transform.
+
+``UnparentAll()``
+
+Parents all objects to the root of the scene (I.e. no parent).
+
+``UnparentAll(int length)``
+
+Parents all objects up to the provided length - 1 to the root of the scene (I.e. no parent).
+
+``SetActiveAll(bool state)``
+
+Sets the objects' active state.
+
+``SetActiveAll(bool state, int length)``
+
+Sets the objects' active state up to the provided length - 1.
+
+``ParentAndSetActiveAll(Transform parent, bool state)``
+
+Sets the objects' parent to «parent» and the active state to «state».
+
+``ParentAndSetActiveAll(Transform parent, bool state, int length)``
+
+Sets the objects' parent to «parent» and the active state to «state» up until the provided length - 1.
+
+``UnparentAndSetActiveAll(bool state)``
+
+Sets the objects' parent to the root of the scene and the active state to «state».
+
+``UnparentAndSetActiveAll(bool state, int length)``
+
+Sets the objects' parent to the root of the scene and the active state to «state» up until the provided length - 1.
 
 .. code-block:: csharp
     :linenos:
@@ -290,20 +457,15 @@ They control parenting and the active state of the object. Here are the many var
 
 ****
 
-**OTHER EXTENSIONS**
---------------------
-
-.. toctree::
-    :titlesonly:
-    :maxdepth: 1
-
-    Array and List Extensions <array-and-list>
-    GameObject and Component Extensions <gameobject-and-component>
-    ParticleSystem Extensions <particlesystem>
-    Physics Extensions <physics>
-    Value Extensions <value>
-
 **GET HELP**
 ------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+
+.. seealso::
+
+    * :ref:`GameObject and Component Extensions <gameobject-and-component>`
+    * :ref:`ParticleSystem Extensions <particlesystem>`
+    * :ref:`Physics Extensions <physics>`
+    * :ref:`Texture Extensions <texture>`
+    * :ref:`Value Extensions <value>`

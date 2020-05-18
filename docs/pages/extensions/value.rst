@@ -8,13 +8,14 @@ Overview
 --------
 
     * :ref:`Add and Sub`
+    * :ref:`AverageBrightness, Luminance, and PerceivedLuminance`
     * :ref:`ClosestPoint`
     * :ref:`Dir and Dist`
     * :ref:`InversePoint`
     * :ref:`Logic`
     * :ref:`ToVec`
+    * :ref:`WithR/G/B/A`
     * :ref:`WithX/Y/Z/W`
-    * :ref:`Other Extensions <**OTHER EXTENSIONS**>`
     * :ref:`Get Help <**GET HELP**>`
 
 **EXTENSIONS**
@@ -23,8 +24,11 @@ Overview
 Add and Sub
 -----------
 
-* **Add(int/float/double/decimal v)** - Adds the value (v) to all parameters of the vector.
-* **Sub(int/float/double/decimal v)** - Subtracts the value (v) drom all parameters of the vector.
+* ``Add(int/float/double/decimal v)``
+* ``Sub(int/float/double/decimal v)``
+
+**Add** adds the value **v** to all parameters of the vector.
+**Sub** subtracts the value **v** from all parameters of the vector.
 
 Add and Sub are available to all vectors, including VectorInts.
 
@@ -44,20 +48,63 @@ Add and Sub are available to all vectors, including VectorInts.
         }
     }
 
+AverageBrightness, Luminance, and PerceivedLuminance
+----------------------------------------------------
+
+* ``AverageBrightness(this Color/Color32 color, BrightnessMode brightnessMode = BrightnessMode.AverageBrightness)``
+* ``Luminance(this Color/Color32 color, BrightnessMode brightnessMode = BrightnessMode.AverageBrightness)``
+* ``PerceivedLuminance(this Color/Color32 color, BrightnessMode brightnessMode = BrightnessMode.AverageBrightness)``
+
+These methods use maths to return different types of brightness levels of a color. They will always return a value within the 0-1 range.
+
+**AverageBrightness** takes an average between the RGB values of a color. Alpha is discarded. It is the same as ``(r + g + b) / 3f``.
+
+**Luminance** returns the standard calculation used to define brightness in most cases. It also discards alpha. ``0.2126f * r + 0.7152f * g + 0.0722f * b``.
+
+**PerceivedLuminance** returns a value closer to what we perceive as luminance on colors naturally. ``0.299 * r + 0.587 * g + 0.114 * b``.
+
+.. code-block:: csharp
+    :linenos:
+
+    using IvyCore;
+    using UnityEngine;
+
+    public class MyClass: MonoBehaviour
+    {
+        public void MyMethod()
+        {
+            Color color = new Color(0.786f, 0.39f, 0.189f);
+
+            Debug.Log($"Average Brightness: {color.AverageBrightness()}");
+            Debug.Log($"Luminance: {color.Luminance()}");
+            Debug.Log($"Perceived Luminance: {color.PerceivedLuminance()}");
+
+            /*
+             * Results:
+             *
+             * Average Brightness: 0,455
+             * Luminance: 0,4596774
+             * Perceived Luminance: 0,48549
+             */
+        }
+    }    
+
+IMAGE GOES HERE
+
 ClosestPoint
 ------------
 
-Returns the closest point in an array of floats, ints, and vectors.
+* ``ClosestPoint(params Vector4[] points)``
+* ``ClosestPoint(params Vector3[] points)``
+* ``ClosestPoint(params Vector3Int[] points)``
+* ``ClosestPoint(params Vector2[] points)``
+* ``ClosestPoint(params Vector2Int[] points)``
+* ``ClosestPoint(params int[] points)``
+* ``ClosestPoint(params float[] points)``
+* ``ClosestPoint(params double[] points)``
+* ``ClosestPoint(params decimal[] points)``
 
-* **ClosestPoint(params Vector4[] points)**
-* **ClosestPoint(params Vector3[] points)**
-* **ClosestPoint(params Vector3Int[] points)**
-* **ClosestPoint(params Vector2[] points)**
-* **ClosestPoint(params Vector2Int[] points)**
-* **ClosestPoint(params int[] points)**
-* **ClosestPoint(params float[] points)**
-* **ClosestPoint(params double[] points)**
-* **ClosestPoint(params decimal[] points)**
+Returns the closest point in an array of floats, ints, and vectors.
 
 .. code-block:: csharp
     :linenos:
@@ -79,8 +126,11 @@ Returns the closest point in an array of floats, ints, and vectors.
 Dir and Dist
 ------------
 
-* **Dir, Dir2, and Dir4(other)** - Dir methods return the direction from point a to b (non normalized).
-* **Dist, Dist2, and Dist4(other, bool sqr = true)** - Dist methods return the square distance between two points.
+* ``Dir, Dir2, and Dir4(other)``
+* ``Dist, Dist2, and Dist4(other, bool sqr = true)``
+
+**Dir** methods return the direction from point a to b (non normalized).
+**Dist** methods return the square distance between two points.
 
 You can call them from components, vectors, and GameObjects.
 
@@ -105,12 +155,13 @@ You can call them from components, vectors, and GameObjects.
 InversePoint
 ------------
 
-* **InversePointUp()** - transform.InverseTransformPoint(transform.up)
-* **InversePointDown()** - transform.InverseTransformPoint(-transform.up)
-* **InversePointRight()** - transform.InverseTransformPoint(transform.right)
-* **InversePointLeft()** - transform.InverseTransformPoint(-transform.right)
-* **InversePointForward()** - transform.InverseTransformPoint(transform.forward)
-* **InversePointBackward()** - transform.InverseTransformPoint(-transform.forward)
+* ``InversePointUp()``
+* ``InversePointDown()``
+* ``InversePointLeft()``
+* ``InversePointForward()``
+* ``InversePointBackward()``
+
+``transform.InverseTransformPoint()`` with all of its own transform directions.
 
 .. code-block:: csharp
     :linenos:
@@ -131,10 +182,18 @@ InversePoint
 Logic
 -----
 
-* **bool GreaterAny(this Vector a, Vector b)** - Returns if any axis from a is greater than any axis from b.
-* **bool LessAny(this Vector a, Vector b)** - Returns if any axis from a is lesser than any axis from b.
-* **bool GreaterAll(this Vector a, Vector b)** - Returns if all axis from a are greater than all axis from b.
-* **bool LessAll(this Vector a, Vector b)** - Returns if all axis from a are lesser than all axis from b.
+* ``bool GreaterAny(this Vector a, Vector b)``
+* ``bool LessAny(this Vector a, Vector b)``
+* ``bool GreaterAll(this Vector a, Vector b)``
+* ``bool LessAll(this Vector a, Vector b)``
+
+**GreaterAny** returns true if any axis from **a** is greater than any axis from **b**.
+
+**LessAny** returns true if any axis from **a** is lesser than any axis from **b**.
+
+**GreaterAll** returns true if all axis from **a** are greater than all axis from **b**.
+
+**LessAll** returns if all axis from **a** are lesser than all axis from **b**.
 
 .. code-block:: csharp
     :linenos:
@@ -158,69 +217,66 @@ ToVec
 
 Converts values to vectors, and vectors into other vectors.
 
-To Vector 4
+**TO VECTOR 4**
 
-* **ToVec4(this Vector3 vec, float w)** - Returns a Vector4 with the xyz fields from vec's values and w field from, well, w. It defaults to zero.
-* **ToVec4(this Vector3Int vec, float w)** - Returns a Vector4 with the xyz fields from vec's values and w field from, well, w. It defaults to zero.
-* **ToVec4(this Vector2 vec, float z, float w)** - Returns a Vector4 with the xy fields from vec's values and zw field from z and w. It defaults both to zero.
-* **ToVec4(this Vector2Int vec, float z, float w)** - Returns a Vector4 with the xy fields from vec's values and zw field from z and w. It defaults both to zero.
-* **ToVec4(this decimal v)** - Returns a Vector4 with the xyzw fields set to v.
-* **ToVec4(this double v)** - Returns a Vector4 with the xyzw fields set to v.
-* **ToVec4(this float v)** - Returns a Vector4 with the xyzw fields set to v.
-* **ToVec4(this byte v)** - Returns a Vector4 with the xyzw fields set to v.
-* **ToVec4(this int v)** - Returns a Vector4 with the xyzw fields set to v.
+* ``ToVec4(this Vector3 vec, float w)``
+* ``ToVec4(this Vector3Int vec, float w)``
+* ``ToVec4(this Vector2 vec, float z, float w)``
+* ``ToVec4(this Vector2Int vec, float z, float w)``
+* ``ToVec4(this decimal v)``
+* ``ToVec4(this double v)``
+* ``ToVec4(this float v)``
+* ``ToVec4(this byte v)``
+* ``ToVec4(this int v)``
  
 
-To Vector 3
+**TO VECTOR 3**
 
-* **ToVec3(this Vector4 vec)** - Returns a Vector3 with the xyz fields from vec's xyz and discards w.
-* **ToVec3(this Vector3Int vec)** - Returns a Vector3 with the xyz fields from vec's values.
-* **ToVec3(this Vector2 vec, float z)** - Returns a Vector3 with the xy fields from vec's values and z field from z . It defaults to zero.
-* **ToVec3(this Vector2Int vec, float z)** - Returns a Vector3 with the xy fields from vec's values and z field from z . It defaults to zero.
-* **ToVec3(this decimal v)** - Returns a Vector3 with the xyz fields set to v.
-* **ToVec3(this double v)** - Returns a Vector3 with the xyz fields set to v.
-* **ToVec3(this float v)** - Returns a Vector3 with the xyz fields set to v.
-* **ToVec3(this byte v)** - Returns a Vector3 with the xyz fields set to v.
-* **ToVec3(this int v)** - Returns a Vector3 with the xyz fields set to v.
- 
+* ``ToVec3(this Vector4 vec)``
+* ``ToVec3(this Vector3Int vec)``
+* ``ToVec3(this Vector2 vec, float z)``
+* ``ToVec3(this Vector2Int vec, float z)``
+* ``ToVec3(this decimal v)``
+* ``ToVec3(this double v)``
+* ``ToVec3(this float v)``
+* ``ToVec3(this byte v)``
+* ``ToVec3(this int v)``
 
-To Vector 3 Int
+**TO VECTOR 3 INT**
 
-* **ToVec3Int(this Vector4 vec)** - Returns a Vector3Int with the xy fields from vec's xy and discards z and w.
-* **ToVec3Int(this Vector3 vec)** - Returns a Vector3Int with the xy fields from vec's values and discards z.
-* **ToVec3Int(this Vector2 vec, int z)** - Returns a Vector3Int with the xy fields from vec's values and z field from z. It defaults to zero.
-* **ToVec3Int(this Vector2Int vec, int z)** - Returns a Vector3Int with the xy fields from vec's values and z field from z. It defaults to zero.
-* **ToVec3Int(this decimal v)** - Returns a Vector3Int with the xy fields set to v.
-* **ToVec3Int(this double v)** - Returns a Vector3Int with the xy fields set to v.
-* **ToVec3Int(this float v)** - Returns a Vector3Int with the xy fields set to v.
-* **ToVec3Int(this byte v)** - Returns a Vector3Int with the xy fields set to v.
-* **ToVec3Int(this int v)** - Returns a Vector3Int with the xy fields set to v.
- 
+* ``ToVec3Int(this Vector4 vec)``
+* ``ToVec3Int(this Vector3 vec)``
+* ``ToVec3Int(this Vector2 vec, int z)``
+* ``ToVec3Int(this Vector2Int vec, int z)``
+* ``ToVec3Int(this decimal v)``
+* ``ToVec3Int(this double v)``
+* ``ToVec3Int(this float v)``
+* ``ToVec3Int(this byte v)``
+* ``ToVec3Int(this int v)``
 
-To Vector 2
+**TO VECTOR 2**
 
-* **ToVec2(this Vector4 vec)** - Returns a Vector2 with the xy fields from vec's xy and discards z and w.
-* **ToVec2(this Vector3 vec)** - Returns a Vector2 with the xy fields from vec's values and discards z.
-* **ToVec2(this Vector3Int vec)** - Returns a Vector2 with the xy fields from vec's values and discards z.
-* **ToVec2(this Vector2Int vec)** - Returns a Vector2 with the xy fields from vec's values.
-* **ToVec2(this decimal v)** - Returns a Vector2 with the xy fields set to v.
-* **ToVec2(this double v)** - Returns a Vector2 with the xy fields set to v.
-* **ToVec2(this float v)** - Returns a Vector2 with the xy fields set to v.
-* **ToVec2(this byte v)** - Returns a Vector2 with the xy fields set to v.
-* **ToVec2(this int v)** - Returns a Vector2 with the xy fields set to v.
- 
+* ``ToVec2(this Vector4 vec)``
+* ``ToVec2(this Vector3 vec)``
+* ``ToVec2(this Vector3Int vec)``
+* ``ToVec2(this Vector2Int vec)``
+* ``ToVec2(this decimal v)``
+* ``ToVec2(this double v)``
+* ``ToVec2(this float v)``
+* ``ToVec2(this byte v)``
+* ``ToVec2(this int v)``
 
-To Vector 2 Int
+**TO VECTOR 2 INT**
 
-* **ToVec2Int(this Vector4 vec)** - Returns a Vector2Int with the xy fields from vec's xy and discards z and w.
-* **ToVec2Int(this Vector3 vec)** - Returns a Vector2Int with the xy fields from vec's values and discards z.
-* **ToVec2Int(this Vector3Int vec)** - Returns a Vector2Int with the xy fields from vec's values and discards z.
-* **ToVec2Int(this Vector2 vec)** - Returns a Vector2Int with the xy fields from vec's values.
-* **ToVec2Int(this decimal v)** - Returns a Vector2Int with the xy fields set to v.
-* **ToVec2Int(this double v)** - Returns a Vector2Int with the xy fields set to v.
-* **ToVec2Int(this float v)** - Returns a Vector2Int with the xy fields set to v.
-* **ToVec2Int(this byte v)** - Returns a Vector2Int with the xy fields set to v.
-* **ToVec2Int(this int v)** - Returns a Vector2Int with the xy fields set to v.
+* ``ToVec2Int(this Vector4 vec)``
+* ``ToVec2Int(this Vector3 vec)``
+* ``ToVec2Int(this Vector3Int vec)``
+* ``ToVec2Int(this Vector2 vec)``
+* ``ToVec2Int(this decimal v)``
+* ``ToVec2Int(this double v)``
+* ``ToVec2Int(this float v)``
+* ``ToVec2Int(this byte v)``
+* ``ToVec2Int(this int v)``
 
 .. code-block:: csharp
     :linenos:
@@ -240,10 +296,33 @@ To Vector 2 Int
         }
     }
 
+WithR/G/B/A
+-----------
+
+They return a new color which copies all values from the extended one, and sets the relevant field to the given value. Support for Color and Color32 is available.
+
+.. code-block:: csharp
+    :linenos:
+
+    using IvyTools;
+    using UnityEngine;
+
+    public class MyClass: MonoBehaviour
+    {
+        void MyMethod()
+        {
+            Color color = Color.white;
+            Debug.Log(color.WithR(.5f).WithA(.2f)); // Prints ".5, 1f, 1f, .2f".
+            Debug.Log(color); // Prints "1f, 1f, 1f, 1f".
+            color = color.WithG(5f).WithB(2f);
+            Debug.Log(color); // Prints "5f, 1f, 2f, 1f".
+        }
+    }
+
 WithX/Y/Z/W
 -----------
 
-Return a new vector with the respective field set to the provided value. They support all vector types: Vector2, Vector2Int, Vector3, Vector3Int, and Vector4. They don't set the vector extended, but rather return a new vector with that value applied.
+They return a new vector with the respective field set to the provided value. They support all vector types: Vector2, Vector2Int, Vector3, Vector3Int, and Vector4. They don't set the vector extended, but rather return a new vector with that value applied.
 
 .. code-block:: csharp
     :linenos:
@@ -256,29 +335,24 @@ Return a new vector with the respective field set to the provided value. They su
         void MyMethod()
         {
             Vector3 vector = Vector3.zero;
-            Debug.Log(vector.SetX(5f).SetZ(2f)); // Prints "5, 0, 2".
+            Debug.Log(vector.WithX(5f).WithZ(2f)); // Prints "5, 0, 2".
             Debug.Log(vector); // Prints "0, 0, 0".
-            vector = vector.SetX(5f).SetZ(2f)
+            vector = vector.WithX(5f).WithZ(2f);
             Debug.Log(vector); // Prints "5, 0, 2".
         }
     }
 
 ****
 
-**OTHER EXTENSIONS**
---------------------
-
-.. toctree::
-    :titlesonly:
-    :maxdepth: 1
-
-    Array and List Extensions <array-and-list>
-    GameObject and Component Extensions <gameobject-and-component>
-    ParticleSystem Extensions <particlesystem>
-    Physics Extensions <physics>
-    Value Extensions <value>
-
 **GET HELP**
 ------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+
+.. seealso::
+
+    * :ref:`Array and List Extensions <array-and-list>`
+    * :ref:`GameObject and Component Extensions <gameobject-and-component>`
+    * :ref:`ParticleSystem Extensions <particlesystem>`
+    * :ref:`Physics Extensions <physics>`
+    * :ref:`Texture Extensions <texture>`

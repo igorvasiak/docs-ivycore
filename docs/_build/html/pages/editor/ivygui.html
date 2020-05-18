@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>IvyGUI &#8212; Ivy Core 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="IvyGUILayout" href="ivyguilayout.html" />
+    <link rel="prev" title="IvyEditorColors" href="ivyeditorcolors.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ivygui">
+<h1>IvyGUI<a class="headerlink" href="#ivygui" title="Permalink to this headline">¶</a></h1>
+<p>A collection of custom fields to improve your custom editors. It has everything IvyGUILayout has.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="ivyguilayout.html#bigheader"><span class="std std-ref">BigHeader</span></a></p></li>
+<li><p><a class="reference internal" href="#drawtexture"><span class="std std-ref">DrawTexture</span></a></p></li>
+<li><p><a class="reference internal" href="ivyguilayout.html#splitter"><span class="std std-ref">Splitter</span></a></p></li>
+<li><p><a class="reference internal" href="ivyguilayout.html#subheader"><span class="std std-ref">SubHeader</span></a></p></li>
+<li><p><a class="reference internal" href="../values/register.html#get-help"><span class="std std-ref">Get Help</span></a></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="methods">
+<h2><strong>METHODS</strong><a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="bigheader">
+<h2>BigHeader<a class="headerlink" href="#bigheader" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BigHeader(Rect</span> <span class="pre">rect,</span> <span class="pre">string</span> <span class="pre">title)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BigHeader(Rect</span> <span class="pre">rect,</span> <span class="pre">GUIContent</span> <span class="pre">content)</span></code></p></li>
+</ul>
+<p>Draws a big header identical to the BigHeader attribute.</p>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyEditor</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEditor</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="na">[CustomEditor(typeof(MyClass))]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClassEditor</span> <span class="p">:</span> <span class="n">Editor</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnInspectorGUI</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Rect</span> <span class="n">rect</span> <span class="p">=</span> <span class="n">EditorGUILayout</span><span class="p">.</span><span class="n">GetControlRect</span><span class="p">();</span>
+        <span class="n">IvyGUI</span><span class="p">.</span><span class="n">BigHeader</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="s">&quot;A BIG TITLE!&quot;</span><span class="p">,</span> <span class="s">&quot;A smaller title.&quot;</span><span class="p">);</span>
+        <span class="c1">// Some code...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>IMAGE GOES HERE!</p>
+</div>
+<div class="section" id="drawtexture">
+<h2>DrawTexture<a class="headerlink" href="#drawtexture" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DrawTexture(Rect</span> <span class="pre">rect,</span> <span class="pre">Texture2D</span> <span class="pre">texture)</span></code></p>
+<p>Draws a texture within a rect.</p>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyEditor</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEditor</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="na">[CustomEditor(typeof(MyClass))]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClassEditor</span> <span class="p">:</span> <span class="n">Editor</span>
+<span class="p">{</span>
+    <span class="n">Texture2D</span> <span class="n">_tex</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnInspectorGUI</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Rect</span> <span class="n">rect</span> <span class="p">=</span> <span class="n">EditorGUILayout</span><span class="p">.</span><span class="n">GetControlRect</span><span class="p">();</span>
+        <span class="n">rect</span><span class="p">.</span><span class="n">height</span> <span class="p">=</span> <span class="n">rect</span><span class="p">.</span><span class="n">width</span> <span class="p">=</span> <span class="m">50f</span><span class="p">;</span>
+        <span class="n">IvyGUI</span><span class="p">.</span><span class="n">DrawTexture</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">_tex</span><span class="p">);</span>
+        <span class="c1">// Some code...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>IMAGE GOES HERE!</p>
+</div>
+<div class="section" id="splitter">
+<h2>Splitter<a class="headerlink" href="#splitter" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Splitter(Rect</span> <span class="pre">rect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Splitter(Rect</span> <span class="pre">rect,</span> <span class="pre">Color</span> <span class="pre">color)</span></code></p></li>
+</ul>
+<p>Draws a separator line on the screen within the given rect.</p>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyEditor</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEditor</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="na">[CustomEditor(typeof(MyClass))]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClassEditor</span> <span class="p">:</span> <span class="n">Editor</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnInspectorGUI</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Rect</span> <span class="n">rect</span> <span class="p">=</span> <span class="n">EditorGUILayout</span><span class="p">.</span><span class="n">GetControlRect</span><span class="p">();</span>
+        <span class="n">rect</span><span class="p">.</span><span class="n">height</span> <span class="p">=</span> <span class="m">1f</span><span class="p">;</span>
+        <span class="n">IvyGUI</span><span class="p">.</span><span class="n">Splitter</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">Color</span><span class="p">.</span><span class="n">red</span><span class="p">);</span>
+        <span class="c1">// Some code...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>IMAGE GOES HERE!</p>
+</div>
+<div class="section" id="subheader">
+<h2>SubHeader<a class="headerlink" href="#subheader" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SubHeader(Rect</span> <span class="pre">rect,</span> <span class="pre">string</span> <span class="pre">title)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SubHeader(Rect</span> <span class="pre">rect,</span> <span class="pre">GUIContent</span> <span class="pre">content)</span></code></p></li>
+</ul>
+<p>Draws a gray header identical to the SubHeader attribute.</p>
+<div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyEditor</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEditor</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="na">[CustomEditor(typeof(MyClass))]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyClassEditor</span> <span class="p">:</span> <span class="n">Editor</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnInspectorGUI</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Rect</span> <span class="n">rect</span> <span class="p">=</span> <span class="n">EditorGUILayout</span><span class="p">.</span><span class="n">GetControlRect</span><span class="p">();</span>
+        <span class="n">IvyGUI</span><span class="p">.</span><span class="n">SubHeader</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="s">&quot;A Sub Header&quot;</span><span class="p">);</span>
+        <span class="c1">// Some code...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>IMAGE GOES HERE!</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="get-help">
+<h2><strong>GET HELP</strong><a class="headerlink" href="#get-help" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://discord.gg/CvG3p7Q">Join this Discord server</a> to get help, suggest new features, and vote on future updates!</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../attributes.html#attributes"><span class="std std-ref">Attributes</span></a></p></li>
+<li><p><a class="reference internal" href="ivyguilayout.html#ivyguilayout"><span class="std std-ref">IvyGUILayout</span></a></p></li>
+<li><p><a class="reference internal" href="ivyguiutility.html#ivyguiutility"><span class="std std-ref">IvyGUIUtility</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Ivy Core</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started Using Ivy Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about-extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../attributes.html">Attributes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Extensions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/array-and-list.html">Array and List Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/gameobject-and-component.html">GameObject and Component Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/particlesystem.html">ParticleSystem Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/physics.html">Physics Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/value.html">Value Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utilities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/arrayutils-and-listutils.html">IvyArrayUtils and IvyListUtils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/ioutils.html">IvyIOUtils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/logutils.html">LogUtils</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Values</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../values/holiday.html">Holiday</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../values/register.html">Register&lt;T&gt;</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Editor</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bootstrap.html">Bootstrap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ivyeditorcolors.html">IvyEditorColors</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IvyGUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ivyguilayout.html">IvyGUILayout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ivyguiutility.html">IvyGUIUtility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ivystyles.html">IvyStyles</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="ivyeditorcolors.html" title="previous chapter">IvyEditorColors</a></li>
+      <li>Next: <a href="ivyguilayout.html" title="next chapter">IvyGUILayout</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Igor Vasiak.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/pages/editor/ivygui.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

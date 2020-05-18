@@ -7,11 +7,10 @@ Overview
 
     * :ref:`Fields <**FIELDS**>`
     * :ref:`Methods <**METHODS**>`
-        * :ref:`Get <Holiday Get(Holiday.Kind type)>`
-        * :ref:`IsHoliday <bool IsHoliday(Holiday holiday)>`
+        * :ref:`Get`
+        * :ref:`IsHoliday`
     * :ref:`Properties <**PROPERTIES**>`
         * :ref:`Pre-Defined Holidays`
-    * :ref:`Other Values <**OTHER VALUES**>`
     * :ref:`Get Help <**GET HELP**>`
     
 **FIELDS**
@@ -33,8 +32,10 @@ Overview
 **METHODS**
 -----------
 
-Holiday Get(Holiday.Kind type)
-------------------------------
+Get
+---
+
+* ``Holiday Get(Holiday.Kind type)``
 
 Returns the Holiday that best corresponds the given HolidayType.
 
@@ -55,8 +56,10 @@ Returns the Holiday that best corresponds the given HolidayType.
         }
     }
 
-bool IsHoliday(Holiday holiday)
--------------------------------
+IsHoliday
+---------
+
+* ``bool IsHoliday(Holiday holiday)``
 
 Verifies if a specific holiday is going on.
 
@@ -134,16 +137,11 @@ Pre-Defined Holidays
 
 ****
 
-**OTHER VALUES**
-----------------
-
-.. toctree::
-    :maxdepth: 1
-
-    holiday
-    register
-
 **GET HELP**
 ------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+
+.. seealso::
+
+    register

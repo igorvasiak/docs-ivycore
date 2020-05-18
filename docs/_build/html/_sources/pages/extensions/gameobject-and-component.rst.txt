@@ -75,20 +75,17 @@ There are many variations of these extensions. They are chainable, as can be see
 
 ****
 
-**OTHER EXTENSIONS**
---------------------
-
-.. toctree::
-    :titlesonly:
-    :maxdepth: 1
-
-    Array and List Extensions <array-and-list>
-    GameObject and Component Extensions <gameobject-and-component>
-    ParticleSystem Extensions <particlesystem>
-    Physics Extensions <physics>
-    Value Extensions <value>
-
 **GET HELP**
 ------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+
+.. seealso::
+
+    * :ref:`Array and List Extensions <array-and-list>`
+    * :ref:`GameObject and Component Extensions <gameobject-and-component>`
+    * :ref:`Physics Extensions <physics>`
+    * :ref:`Value Extensions <value>`
+
+    * :ref:`Transform.SetParent()`
+    * :ref:`GameObject.SetActive()`

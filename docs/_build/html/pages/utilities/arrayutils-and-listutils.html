@@ -14,6 +14,8 @@
     <script src="../../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="IvyIOUtils" href="ioutils.html" />
+    <link rel="prev" title="Value Extensions" href="../extensions/value.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -36,25 +38,27 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference internal" href="#append-ref-t-array-t-item"><span class="std std-ref">Append</span></a></p></li>
-<li><p><a class="reference internal" href="#insert-ref-t-array-t-item-int-index-and-removeat-ref-t-array-int-index"><span class="std std-ref">Insert and RemoveAt</span></a></p></li>
-<li><p><a class="reference internal" href="#moveup-ref-t-list-t-array-int-index-and-movedown-ref-t-list-t-array-int-index"><span class="std std-ref">MoveUp and MoveDown</span></a></p></li>
-<li><p><a class="reference internal" href="#offsetup-ref-t-list-t-array-int-steps-and-offsetdown-ref-t-list-t-array-int-steps"><span class="std std-ref">OffsetUp and OffsetDown</span></a></p></li>
-<li><p><span class="xref std std-ref">Other Utilities</span></p></li>
-<li><p><span class="xref std std-ref">Get Help</span></p></li>
+<li><p><a class="reference internal" href="#append"><span class="std std-ref">Append</span></a></p></li>
+<li><p><a class="reference internal" href="#insert-and-removeat"><span class="std std-ref">Insert and RemoveAt</span></a></p></li>
+<li><p><a class="reference internal" href="#moveup-and-movedown"><span class="std std-ref">MoveUp and MoveDown</span></a></p></li>
+<li><p><a class="reference internal" href="#offsetup-and-offsetdown"><span class="std std-ref">OffsetUp and OffsetDown</span></a></p></li>
+<li><p><a class="reference internal" href="../values/register.html#get-help"><span class="std std-ref">Get Help</span></a></p></li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="utilities">
 <h2><strong>UTILITIES</strong><a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="append-ref-t-array-t-item">
-<h2>Append(ref T[] array, T item)<a class="headerlink" href="#append-ref-t-array-t-item" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="append">
+<h2>Append<a class="headerlink" href="#append" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Append(ref</span> <span class="pre">T[]</span> <span class="pre">array,</span> <span class="pre">T</span> <span class="pre">item)</span></code></p></li>
+</ul>
 <p>Adds an item to the end of the array.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>ArrayUtils-only content.
-Equivalent to List.Add.</p>
+Equivalent to <code class="docutils literal notranslate"><span class="pre">List.Add</span></code>.</p>
 </div>
 <div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -96,14 +100,18 @@ Equivalent to List.Add.</p>
 </pre></div>
 </td></tr></table></div>
 </div>
-<div class="section" id="insert-ref-t-array-t-item-int-index-and-removeat-ref-t-array-int-index">
-<h2>Insert(ref T[] array, T item, int index) and RemoveAt(ref T[] array, int index)<a class="headerlink" href="#insert-ref-t-array-t-item-int-index-and-removeat-ref-t-array-int-index" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="insert-and-removeat">
+<h2>Insert and RemoveAt<a class="headerlink" href="#insert-and-removeat" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Insert(ref</span> <span class="pre">T[]</span> <span class="pre">array,</span> <span class="pre">T</span> <span class="pre">item,</span> <span class="pre">int</span> <span class="pre">index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RemoveAt(ref</span> <span class="pre">T[]</span> <span class="pre">array,</span> <span class="pre">int</span> <span class="pre">index)</span></code></p></li>
+</ul>
 <p><strong>Insert</strong> adds an item in the specified index, and moves all items in the array one index lower, expanding the array by one.
 <strong>RemoveAt</strong> removes the item at the specified index, moves all lower items in the array one index up, and shrinks the array.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>ArrayUtils-only content.
-Equivalent to List&lt;T&gt;.Insert() and List&lt;T&gt;.RemoveAt() for arrays, respectively.</p>
+Equivalent to <code class="docutils literal notranslate"><span class="pre">List&lt;T&gt;.Insert()</span></code> and <code class="docutils literal notranslate"><span class="pre">List&lt;T&gt;.RemoveAt()</span></code> for arrays, respectively.</p>
 </div>
 <div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -151,8 +159,12 @@ Equivalent to List&lt;T&gt;.Insert() and List&lt;T&gt;.RemoveAt() for arrays, re
 </pre></div>
 </td></tr></table></div>
 </div>
-<div class="section" id="moveup-ref-t-list-t-array-int-index-and-movedown-ref-t-list-t-array-int-index">
-<h2>MoveUp(ref T[]/List&lt;T&gt; array, int index) and MoveDown(ref T[]/List&lt;T&gt; array, int index)<a class="headerlink" href="#moveup-ref-t-list-t-array-int-index-and-movedown-ref-t-list-t-array-int-index" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="moveup-and-movedown">
+<h2>MoveUp and MoveDown<a class="headerlink" href="#moveup-and-movedown" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MoveUp(ref</span> <span class="pre">T[]/List&lt;T&gt;</span> <span class="pre">array,</span> <span class="pre">int</span> <span class="pre">index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MoveDown(ref</span> <span class="pre">T[]/List&lt;T&gt;</span> <span class="pre">array,</span> <span class="pre">int</span> <span class="pre">index)</span></code></p></li>
+</ul>
 <p><strong>MoveUp</strong> swaps the item at index with the one an index above. If index is 0, the item will be swapped with the last entry in the array.
 <strong>MoveDown</strong> swaps the item at index with the one an index below. If index is array.Length - 1 (the last index), the item will be swapped with the first entry in the array.</p>
 <div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -213,8 +225,12 @@ Equivalent to List&lt;T&gt;.Insert() and List&lt;T&gt;.RemoveAt() for arrays, re
 </pre></div>
 </td></tr></table></div>
 </div>
-<div class="section" id="offsetup-ref-t-list-t-array-int-steps-and-offsetdown-ref-t-list-t-array-int-steps">
-<h2>OffsetUp(ref T[]/List&lt;T&gt; array, int steps) and OffsetDown(ref T[]/List&lt;T&gt; array, int steps)<a class="headerlink" href="#offsetup-ref-t-list-t-array-int-steps-and-offsetdown-ref-t-list-t-array-int-steps" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="offsetup-and-offsetdown">
+<h2>OffsetUp and OffsetDown<a class="headerlink" href="#offsetup-and-offsetdown" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OffsetUp(ref</span> <span class="pre">T[]/List&lt;T&gt;</span> <span class="pre">array,</span> <span class="pre">int</span> <span class="pre">steps)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OffsetDown(ref</span> <span class="pre">T[]/List&lt;T&gt;</span> <span class="pre">array,</span> <span class="pre">int</span> <span class="pre">steps)</span></code></p></li>
+</ul>
 <p><strong>OffsetUp</strong> moves all values up on the array as many times as specified.
 <strong>OffsetDown</strong> moves all items down on the array as many times as specified.</p>
 <div class="highlight-csharp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -276,19 +292,20 @@ Equivalent to List&lt;T&gt;.Insert() and List&lt;T&gt;.RemoveAt() for arrays, re
 </td></tr></table></div>
 </div>
 <hr class="docutils" />
-<div class="section" id="other-utilities">
-<h2><strong>OTHER UTILITIES</strong><a class="headerlink" href="#other-utilities" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">IvyArrayUtils and IvyListUtils</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="ioutils.html">IvyIOUtils</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="logutils.html">IvyLogUtils</a></li>
-</ul>
-</div>
-</div>
 <div class="section" id="get-help">
 <h2><strong>GET HELP</strong><a class="headerlink" href="#get-help" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://discord.gg/CvG3p7Q">Join this Discord server</a> to get help, suggest new features, and vote on future updates!</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/collections">Collections</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/">LINQ</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/arrays">Arrays</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.array?view=netcore-3.1">System.Array</a></p></li>
+<li><p><span class="xref std std-ref">IvyIOUtils</span></p></li>
+<li><p><a class="reference internal" href="logutils.html#logutils"><span class="std std-ref">IvyLogUtils</span></a></p></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -309,11 +326,47 @@ Equivalent to List&lt;T&gt;.Insert() and List&lt;T&gt;.RemoveAt() for arrays, re
 
 
 <h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started Using Ivy Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about-extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../attributes.html">Attributes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Extensions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/array-and-list.html">Array and List Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/gameobject-and-component.html">GameObject and Component Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/particlesystem.html">ParticleSystem Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/physics.html">Physics Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/value.html">Value Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utilities</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IvyArrayUtils and IvyListUtils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ioutils.html">IvyIOUtils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logutils.html">LogUtils</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Values</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../values/holiday.html">Holiday</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../values/register.html">Register&lt;T&gt;</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Editor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../editor/bootstrap.html">Bootstrap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editor/ivyeditorcolors.html">IvyEditorColors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editor/ivygui.html">IvyGUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editor/ivyguilayout.html">IvyGUILayout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editor/ivyguiutility.html">IvyGUIUtility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editor/ivystyles.html">IvyStyles</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../extensions/value.html" title="previous chapter">Value Extensions</a></li>
+      <li>Next: <a href="ioutils.html" title="next chapter">IvyIOUtils</a></li>
   </ul></li>
 </ul>
 </div>

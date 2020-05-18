@@ -24,6 +24,7 @@ Overview
         * :ref:`LastRetrieved <T LastRetrieved>`
         * :ref:`IsNull, IsEmpty, and IsNullOrEmpty <bool IsNull, bool IsEmpty, and bool IsNullOrEmpty>`
         * :ref:`Empty and Null` 
+    * :ref:`Get Help <**GET HELP**>`
 
 **METHODS**
 -----------
@@ -292,16 +293,14 @@ Empty and Null representations of Register.
 
 ****
 
-**OTHER VALUES**
-----------------
-
-.. toctree::
-    :maxdepth: 1
-
-    holiday
-    register
-
 **GET HELP**
 ------------
 
 `Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+
+.. seealso::
+
+    * `Dictionary <https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=netcore-3.1>`_
+    * `Generics <https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/>`_
+
+    * :ref:`holiday`
