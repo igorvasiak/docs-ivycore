@@ -1,8 +1,8 @@
 ======
-IvyGUI
+NutGUI
 ======
 
-A collection of custom fields to improve your custom editors. It has everything IvyGUILayout has.
+A collection of custom fields to improve your custom editors. It has everything NutGUILayout has.
 
 Overview
 --------
@@ -27,7 +27,7 @@ Draws a big header identical to the BigHeader attribute.
 .. code-block:: csharp
     :linenos:
 
-    using IvyEditor;
+    using NutEditor;
     using UnityEditor;
     using UnityEngine;
 
@@ -37,7 +37,7 @@ Draws a big header identical to the BigHeader attribute.
         public override void OnInspectorGUI()
         {
             Rect rect = EditorGUILayout.GetControlRect();
-            IvyGUI.BigHeader(rect, "A BIG TITLE!", "A smaller title.");
+            NutGUI.BigHeader(rect, "A BIG TITLE!", "A smaller title.");
             // Some code...
         }
     }
@@ -47,14 +47,14 @@ IMAGE GOES HERE!
 DrawTexture
 -----------
 
-* ``DrawTexture(Rect rect, Texture2D texture)``
+``DrawTexture(Rect rect, Texture2D texture)``
 
 Draws a texture within a rect.
 
 .. code-block:: csharp
     :linenos:
 
-    using IvyEditor;
+    using NutEditor;
     using UnityEditor;
     using UnityEngine;
 
@@ -67,7 +67,7 @@ Draws a texture within a rect.
         {
             Rect rect = EditorGUILayout.GetControlRect();
             rect.height = rect.width = 50f;
-            IvyGUI.DrawTexture(rect, _tex);
+            NutGUI.DrawTexture(rect, _tex);
             // Some code...
         }
     }
@@ -85,7 +85,7 @@ Draws a separator line on the screen within the given rect.
 .. code-block:: csharp
     :linenos:
 
-    using IvyEditor;
+    using NutEditor;
     using UnityEditor;
     using UnityEngine;
 
@@ -96,7 +96,7 @@ Draws a separator line on the screen within the given rect.
         {
             Rect rect = EditorGUILayout.GetControlRect();
             rect.height = 1f;
-            IvyGUI.Splitter(rect, Color.red);
+            NutGUI.Splitter(rect, Color.red);
             // Some code...
         }
     }
@@ -114,7 +114,7 @@ Draws a gray header identical to the SubHeader attribute.
 .. code-block:: csharp
     :linenos:
 
-    using IvyEditor;
+    using NutEditor;
     using UnityEditor;
     using UnityEngine;
 
@@ -124,7 +124,7 @@ Draws a gray header identical to the SubHeader attribute.
         public override void OnInspectorGUI()
         {
             Rect rect = EditorGUILayout.GetControlRect();
-            IvyGUI.SubHeader(rect, "A Sub Header");
+            NutGUI.SubHeader(rect, "A Sub Header");
             // Some code...
         }
     }
@@ -136,10 +136,10 @@ IMAGE GOES HERE!
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
 
     * :ref:`Attributes`
-    * :ref:`IvyGUILayout`
-    * :ref:`IvyGUIUtility`
+    * :ref:`NutGUILayout`
+    * :ref:`NutGUIUtility`

@@ -39,8 +39,8 @@
     :Caption: Editor
 
     pages/editor/bootstrap
-    pages/editor/ivyeditorcolors
-    pages/editor/ivygui
-    pages/editor/ivyguilayout
-    pages/editor/ivyguiutility
-    pages/editor/ivystyles
+    pages/editor/nuteditorcolors
+    pages/editor/nutgui
+    pages/editor/nutguilayout
+    pages/editor/nutguiutility
+    pages/editor/nutstyles

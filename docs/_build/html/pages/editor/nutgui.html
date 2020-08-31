@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>IvyGUI &#8212; Ivy Core 1.0.0 documentation</title>
+    <title>NutGUI &#8212; Nut Library 1.0.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -14,8 +14,8 @@
     <script src="../../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="IvyGUILayout" href="ivyguilayout.html" />
-    <link rel="prev" title="IvyEditorColors" href="ivyeditorcolors.html" />
+    <link rel="next" title="NutGUILayout" href="nutguilayout.html" />
+    <link rel="prev" title="NutEditorColors" href="nuteditorcolors.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -32,17 +32,17 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="ivygui">
-<h1>IvyGUI<a class="headerlink" href="#ivygui" title="Permalink to this headline">¶</a></h1>
-<p>A collection of custom fields to improve your custom editors. It has everything IvyGUILayout has.</p>
+  <div class="section" id="nutgui">
+<h1>NutGUI<a class="headerlink" href="#nutgui" title="Permalink to this headline">¶</a></h1>
+<p>A collection of custom fields to improve your custom editors. It has everything NutGUILayout has.</p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference internal" href="ivyguilayout.html#bigheader"><span class="std std-ref">BigHeader</span></a></p></li>
+<li><p><a class="reference internal" href="nutguilayout.html#bigheader"><span class="std std-ref">BigHeader</span></a></p></li>
 <li><p><a class="reference internal" href="#drawtexture"><span class="std std-ref">DrawTexture</span></a></p></li>
-<li><p><a class="reference internal" href="ivyguilayout.html#splitter"><span class="std std-ref">Splitter</span></a></p></li>
-<li><p><a class="reference internal" href="ivyguilayout.html#subheader"><span class="std std-ref">SubHeader</span></a></p></li>
+<li><p><a class="reference internal" href="nutguilayout.html#splitter"><span class="std std-ref">Splitter</span></a></p></li>
+<li><p><a class="reference internal" href="nutguilayout.html#subheader"><span class="std std-ref">SubHeader</span></a></p></li>
 <li><p><a class="reference internal" href="../values/register.html#get-help"><span class="std std-ref">Get Help</span></a></p></li>
 </ul>
 </div></blockquote>
@@ -70,7 +70,7 @@
 11
 12
 13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyEditor</span><span class="p">;</span>
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">NutEditor</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">UnityEditor</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 
@@ -80,7 +80,7 @@
     <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnInspectorGUI</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="n">Rect</span> <span class="n">rect</span> <span class="p">=</span> <span class="n">EditorGUILayout</span><span class="p">.</span><span class="n">GetControlRect</span><span class="p">();</span>
-        <span class="n">IvyGUI</span><span class="p">.</span><span class="n">BigHeader</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="s">&quot;A BIG TITLE!&quot;</span><span class="p">,</span> <span class="s">&quot;A smaller title.&quot;</span><span class="p">);</span>
+        <span class="n">NutGUI</span><span class="p">.</span><span class="n">BigHeader</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="s">&quot;A BIG TITLE!&quot;</span><span class="p">,</span> <span class="s">&quot;A smaller title.&quot;</span><span class="p">);</span>
         <span class="c1">// Some code...</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -108,7 +108,7 @@
 14
 15
 16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyEditor</span><span class="p">;</span>
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">NutEditor</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">UnityEditor</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 
@@ -121,7 +121,7 @@
     <span class="p">{</span>
         <span class="n">Rect</span> <span class="n">rect</span> <span class="p">=</span> <span class="n">EditorGUILayout</span><span class="p">.</span><span class="n">GetControlRect</span><span class="p">();</span>
         <span class="n">rect</span><span class="p">.</span><span class="n">height</span> <span class="p">=</span> <span class="n">rect</span><span class="p">.</span><span class="n">width</span> <span class="p">=</span> <span class="m">50f</span><span class="p">;</span>
-        <span class="n">IvyGUI</span><span class="p">.</span><span class="n">DrawTexture</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">_tex</span><span class="p">);</span>
+        <span class="n">NutGUI</span><span class="p">.</span><span class="n">DrawTexture</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">_tex</span><span class="p">);</span>
         <span class="c1">// Some code...</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -150,7 +150,7 @@
 12
 13
 14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyEditor</span><span class="p">;</span>
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">NutEditor</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">UnityEditor</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 
@@ -161,7 +161,7 @@
     <span class="p">{</span>
         <span class="n">Rect</span> <span class="n">rect</span> <span class="p">=</span> <span class="n">EditorGUILayout</span><span class="p">.</span><span class="n">GetControlRect</span><span class="p">();</span>
         <span class="n">rect</span><span class="p">.</span><span class="n">height</span> <span class="p">=</span> <span class="m">1f</span><span class="p">;</span>
-        <span class="n">IvyGUI</span><span class="p">.</span><span class="n">Splitter</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">Color</span><span class="p">.</span><span class="n">red</span><span class="p">);</span>
+        <span class="n">NutGUI</span><span class="p">.</span><span class="n">Splitter</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">Color</span><span class="p">.</span><span class="n">red</span><span class="p">);</span>
         <span class="c1">// Some code...</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -189,7 +189,7 @@
 11
 12
 13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">IvyEditor</span><span class="p">;</span>
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">NutEditor</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">UnityEditor</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 
@@ -199,7 +199,7 @@
     <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnInspectorGUI</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="n">Rect</span> <span class="n">rect</span> <span class="p">=</span> <span class="n">EditorGUILayout</span><span class="p">.</span><span class="n">GetControlRect</span><span class="p">();</span>
-        <span class="n">IvyGUI</span><span class="p">.</span><span class="n">SubHeader</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="s">&quot;A Sub Header&quot;</span><span class="p">);</span>
+        <span class="n">NutGUI</span><span class="p">.</span><span class="n">SubHeader</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="s">&quot;A Sub Header&quot;</span><span class="p">);</span>
         <span class="c1">// Some code...</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -215,8 +215,8 @@
 <p class="admonition-title">See also</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../attributes.html#attributes"><span class="std std-ref">Attributes</span></a></p></li>
-<li><p><a class="reference internal" href="ivyguilayout.html#ivyguilayout"><span class="std std-ref">IvyGUILayout</span></a></p></li>
-<li><p><a class="reference internal" href="ivyguiutility.html#ivyguiutility"><span class="std std-ref">IvyGUIUtility</span></a></p></li>
+<li><p><a class="reference internal" href="nutguilayout.html#nutguilayout"><span class="std std-ref">NutGUILayout</span></a></p></li>
+<li><p><a class="reference internal" href="nutguiutility.html#nutguiutility"><span class="std std-ref">NutGUIUtility</span></a></p></li>
 </ul>
 </div>
 </div>
@@ -229,7 +229,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../../index.html">Ivy Core</a></h1>
+<h1 class="logo"><a href="../../index.html">Nut Library</a></h1>
 
 
 
@@ -241,7 +241,7 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started Using Ivy Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started Using Nut Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about-extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../attributes.html">Attributes</a></li>
 </ul>
@@ -255,8 +255,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Utilities</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../utilities/arrayutils-and-listutils.html">IvyArrayUtils and IvyListUtils</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../utilities/ioutils.html">IvyIOUtils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/arrayutils-and-listutils.html">NutArrayUtils and NutListUtils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/ioutils.html">NutIOUtils</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities/logutils.html">LogUtils</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Values</span></p>
@@ -267,19 +267,19 @@
 <p class="caption"><span class="caption-text">Editor</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bootstrap.html">Bootstrap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ivyeditorcolors.html">IvyEditorColors</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">IvyGUI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ivyguilayout.html">IvyGUILayout</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ivyguiutility.html">IvyGUIUtility</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ivystyles.html">IvyStyles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nuteditorcolors.html">NutEditorColors</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NutGUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nutguilayout.html">NutGUILayout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nutguiutility.html">NutGUIUtility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nutstyles.html">NutStyles</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="ivyeditorcolors.html" title="previous chapter">IvyEditorColors</a></li>
-      <li>Next: <a href="ivyguilayout.html" title="next chapter">IvyGUILayout</a></li>
+      <li>Previous: <a href="nuteditorcolors.html" title="previous chapter">NutEditorColors</a></li>
+      <li>Next: <a href="nutguilayout.html" title="next chapter">NutGUILayout</a></li>
   </ul></li>
 </ul>
 </div>
@@ -313,7 +313,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../_sources/pages/editor/ivygui.rst.txt"
+      <a href="../../_sources/pages/editor/nutgui.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

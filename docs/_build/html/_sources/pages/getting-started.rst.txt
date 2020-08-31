@@ -1,12 +1,12 @@
 ==============================
-Getting Started Using Ivy Core
+Getting Started Using Nut Library
 ==============================
 
-Ivy Core is a collection of extensions, utilities, and features that help speed up game development and write bug-free readable code while working with Unity.
+Nut Library is a collection of extensions, utilities, and features that help speed up game development and write bug-free readable code while working with Unity.
 
 Many times we get caught re-writing code we already wrote before, be it in small sentences such as ``Vector3 b = new Vector3(a.x, 2, a.z)``, or be it in larger ones, such as array handling or image loading.
 
-Ivy Core takes care of that, and even more! As explained and demonstrated in this documentation conglomerate, you can write code faster than ever.
+Nut Library takes care of that, and even more! As explained and demonstrated in this documentation conglomerate, you can write code faster than ever.
 
 So, let's get started?
 ----------------------
@@ -17,9 +17,9 @@ After that, you'll have to import it into Unity. Unity versions before 2020.1 al
 
 Here's a tutorial on how to import assets for Unity 2019.1 and older, and for Unity 2020.1 and newer!
 
-Make sure that the main folder of the asset, Ivy Tools, is at the root of your Assets folder. If you need to change the location of the folder, read this article.
+Make sure that the main folder of the asset, Nut Tools, is at the root of your Assets folder. If you need to change the location of the folder, read this article.
 
-You should now be ready to go! Now here are a few links that may help you to know more about Ivy Core!
+You should now be ready to go! Now here are a few links that may help you to know more about Nut Library!
 
 The Roadmap
 
@@ -34,4 +34,4 @@ Values
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!

@@ -28,7 +28,7 @@ These methods create messages only while running the game in the editor. That me
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools.Utilities;
+    using NutTools.Utilities;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -40,7 +40,7 @@ These methods create messages only while running the game in the editor. That me
         {
             if (target == null)
             {
-                IvyLogUtils.EditorLogError("Target is null, can't proceed with the operation!");
+                NutLogUtils.EditorLogError("Target is null, can't proceed with the operation!");
                 return;
             }
 
@@ -51,7 +51,7 @@ These methods create messages only while running the game in the editor. That me
                 // Do the thing...
             }
             else
-                IvyLogUtils.EditorLogWarning("Can't move! Is this intentional behavior?");
+                NutLogUtils.EditorLogWarning("Can't move! Is this intentional behavior?");
         }
     }
 
@@ -60,9 +60,9 @@ These methods create messages only while running the game in the editor. That me
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
 
-    * :ref:`IvyArrayUtils and IvyListUtils <arrayutils-and-listutils>`
-    * :ref:`IvyIOUtils <ioutils>`
+    * :ref:`NutArrayUtils and NutListUtils <arrayutils-and-listutils>`
+    * :ref:`NutIOUtils <ioutils>`

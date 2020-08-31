@@ -1,5 +1,5 @@
 ===============
-IvyEditorColors
+NutEditorColors
 ===============
 
 Colors used on custom editors. Some change with the editor skin.
@@ -21,9 +21,9 @@ Colors used on custom editors. Some change with the editor skin.
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
 
-    * Color
-    * Color32
+    * `Color <https://docs.unity3d.com/ScriptReference/Color.html>`_
+    * `Color32 <https://docs.unity3d.com/ScriptReference/Color32.html>`_

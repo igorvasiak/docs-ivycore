@@ -1,5 +1,5 @@
 ===============
-IvyTextureUtils
+NutTextureUtils
 ===============
 
 Utilities created to help handling textures on general situations.
@@ -26,7 +26,7 @@ Creates a base texture with the provided color and size. The texture will be aut
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools.Utilities;
+    using NutTools.Utilities;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -52,7 +52,7 @@ Creates a texture with the given size filled with random colors.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools.Utilities;
+    using NutTools.Utilities;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -72,9 +72,9 @@ Creates a texture with the given size filled with random colors.
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
 
-    - IvyTextureExtensions
+    - NutTextureExtensions
     - Sprite.Create

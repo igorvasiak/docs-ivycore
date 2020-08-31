@@ -42,7 +42,7 @@ Returns the Holiday that best corresponds the given HolidayType.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEditor;
 
     public class MyClass: MonoBehaviour
@@ -81,7 +81,7 @@ Verifies if a specific holiday is going on.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -140,7 +140,7 @@ Pre-Defined Holidays
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
 

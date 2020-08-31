@@ -2,7 +2,7 @@
 GameObject and Component Extensions
 ===================================
 
-These extensions are quality of life features for Components and GameObjects. Currently there are only a few extensions, but in the future more features will make their way into Ivy Core. These extensions are chainable.
+These extensions are quality of life features for Components and GameObjects. Currently there are only a few extensions, but in the future more features will make their way into Nut Library. These extensions are chainable.
 
 Overview
 --------
@@ -24,7 +24,7 @@ Compares the parents of both objects and returns true if they match eachother.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -68,7 +68,7 @@ Sets the object's parent to «null» and the active state to «state».
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -93,7 +93,7 @@ Sets the object's parent to «null» and the active state to «state».
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
 

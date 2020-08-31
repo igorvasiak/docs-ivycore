@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Ivy Core'
+project = 'Nut Library'
 copyright = '2020, Igor Vasiak'
 author = 'Igor Vasiak'
 

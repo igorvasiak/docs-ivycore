@@ -119,6 +119,6 @@ Sets the script's execution order on the Execution Order settings for you. Just 
 
 Setting it to zero is likely to change nothing.
 
-The script's execution order is changed in the `IvyCoreBootstrap.cs <.\docs\pages\bootstrap>`_ file.
+The script's execution order is changed in the `NutCoreBootstrap.cs <.\docs\pages\bootstrap>`_ file.
 
 IMAGE GOES HERE 

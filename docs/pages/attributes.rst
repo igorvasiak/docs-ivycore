@@ -119,7 +119,7 @@ Sets the script's `execution order <https://docs.unity3d.com/Manual/class-MonoMa
 
 Setting it to zero is likely to change nothing.
 
-This attribute is applied in the `IvyCoreBootstrap.cs <.\docs\pages\bootstrap>`_ file.
+This attribute is applied in the `NutCoreBootstrap.cs <.\docs\pages\bootstrap>`_ file.
 
 IMAGE GOES HERE
 
@@ -128,7 +128,7 @@ IMAGE GOES HERE
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
 

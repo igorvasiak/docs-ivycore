@@ -1,5 +1,5 @@
 ============
-IvyGUILayout
+NutGUILayout
 ============
 
 Overview
@@ -30,7 +30,7 @@ Draws a big header identical to the BigHeader attribute.
 .. code-block:: csharp
     :linenos:
 
-    using IvyEditor;
+    using NutEditor;
     using UnityEditor;
     using UnityEngine;
 
@@ -39,7 +39,7 @@ Draws a big header identical to the BigHeader attribute.
     {
         public void OnInspectorGUI()
         {
-            IvyGUILayout.BigHeader("A Big Title");
+            NutGUILayout.BigHeader("A Big Title");
             // ...
         }
     }
@@ -55,7 +55,7 @@ Draws a big-sized title label.
 .. code-block:: csharp
     :linenos:
 
-    using IvyEditor;
+    using NutEditor;
     using UnityEditor;
     using UnityEngine;
 
@@ -64,7 +64,7 @@ Draws a big-sized title label.
     {
         public void OnInspectorGUI()
         {
-            IvyGUILayout.BigTitleLabel("A Big Title", "A Smaller Title");
+            NutGUILayout.BigTitleLabel("A Big Title", "A Smaller Title");
             // ...
         }
     }
@@ -80,7 +80,7 @@ Draws a small gray-colored title label.
 .. code-block:: csharp
     :linenos:
 
-    using IvyEditor;
+    using NutEditor;
     using UnityEditor;
     using UnityEngine;
 
@@ -89,7 +89,7 @@ Draws a small gray-colored title label.
     {
         public void OnInspectorGUI()
         {
-            IvyGUILayout.BigHeader("A Big Title");
+            NutGUILayout.BigHeader("A Big Title");
             // ...
         }
     }
@@ -104,7 +104,7 @@ Draws a non-reorderable array of floats as ranges.
 .. code-block:: csharp
     :linenos:
 
-    using IvyEditor;
+    using NutEditor;
     using UnityEditor;
     using UnityEngine;
 
@@ -114,7 +114,7 @@ Draws a non-reorderable array of floats as ranges.
         public void OnInspectorGUI()
         {
             MyClass my_class = target as MyClass;
-            IvyGUILayout.RangeArrayField("Array", my_class.percentages, 0f, 100f, 50f);
+            NutGUILayout.RangeArrayField("Array", my_class.percentages, 0f, 100f, 50f);
             // ...
         }
     }
@@ -129,7 +129,7 @@ Draws a double-sided header with two titles.
 .. code-block:: csharp
     :linenos:
 
-    using IvyEditor;
+    using NutEditor;
     using UnityEditor;
     using UnityEngine;
 
@@ -138,7 +138,7 @@ Draws a double-sided header with two titles.
     {
         public void OnInspectorGUI()
         {
-            IvyGUILayout.SplitHeader("A Big Title", 180f, "A Smaller Title");
+            NutGUILayout.SplitHeader("A Big Title", 180f, "A Smaller Title");
             // ...
         }
     }
@@ -156,7 +156,7 @@ Draws a separator line on the screen.
 .. code-block:: csharp
     :linenos:
 
-    using IvyEditor;
+    using NutEditor;
     using UnityEditor;
     using UnityEngine;
 
@@ -166,7 +166,7 @@ Draws a separator line on the screen.
         public void OnInspectorGUI()
         {
             // ...
-            IvyGUILayout.Splitter();
+            NutGUILayout.Splitter();
             // ...
         }
     }
@@ -182,7 +182,7 @@ Draws a small header identical to the SubHeader attribute.
 .. code-block:: csharp
     :linenos:
 
-    using IvyEditor;
+    using NutEditor;
     using UnityEditor;
     using UnityEngine;
 
@@ -191,7 +191,7 @@ Draws a small header identical to the SubHeader attribute.
     {
         public void OnInspectorGUI()
         {
-            IvyGUILayout.SubHeader("A Small Title");
+            NutGUILayout.SubHeader("A Small Title");
             // ...
         }
     }
@@ -207,7 +207,7 @@ Draws a medium-sized title lable.
 .. code-block:: csharp
     :linenos:
 
-    using IvyEditor;
+    using NutEditor;
     using UnityEditor;
     using UnityEngine;
 
@@ -216,7 +216,7 @@ Draws a medium-sized title lable.
     {
         public void OnInspectorGUI()
         {
-            IvyGUILayout.BigHeader("A Title");
+            NutGUILayout.BigHeader("A Title");
             // ...
         }
     }
@@ -231,7 +231,7 @@ Draws a small title and a small subtitle (if any) over a light background.
 .. code-block:: csharp
     :linenos:
 
-    using IvyEditor;
+    using NutEditor;
     using UnityEditor;
     using UnityEngine;
 
@@ -240,7 +240,7 @@ Draws a small title and a small subtitle (if any) over a light background.
     {
         public void OnInspectorGUI()
         {
-            IvyGUILayout.TopHeader("A Top Title", "A Top Subtitle");
+            NutGUILayout.TopHeader("A Top Title", "A Top Subtitle");
             // ...
         }
     }
@@ -250,9 +250,9 @@ Draws a small title and a small subtitle (if any) over a light background.
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
 
-    * :ref:`IvyGUI`
-    * :ref:`IvyGUIUtility`
+    * :ref:`NutGUI`
+    * :ref:`NutGUIUtility`

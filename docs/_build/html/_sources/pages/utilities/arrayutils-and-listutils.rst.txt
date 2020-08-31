@@ -1,5 +1,5 @@
 ==============================
-IvyArrayUtils and IvyListUtils
+NutArrayUtils and NutListUtils
 ==============================
 
 Overview
@@ -28,7 +28,7 @@ Adds an item to the end of the array.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools.Utilities;
+    using NutTools.Utilities;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -43,7 +43,7 @@ Adds an item to the end of the array.
         {
             // Array is set to
             // [ "Text 0", "Text 1", "Text 2", "Text 3", "Text 4", "Text 5", "Text 6" ]
-            IvyArrayUtils.Append(ref array, "Text 6");
+            NutArrayUtils.Append(ref array, "Text 6");
         }
 
     }
@@ -64,7 +64,7 @@ Insert and RemoveAt
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools.Utilities;
+    using NutTools.Utilities;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -79,11 +79,11 @@ Insert and RemoveAt
         {
             // Array is set to
             // [ "Text 0", "Text 1", "Text 2", "Inserted Text", "Text 3", "Text 4", "Text 5" ]
-            IvyArrayUtils.Insert(ref array, "Inserted Text", 3);
+            NutArrayUtils.Insert(ref array, "Inserted Text", 3);
             
             // Array is set to
             // [ "Text 0", "Text 1", "Text 2", "Text 3", "Text 4", "Text 5" ]
-            IvyArrayUtils.RemoveAt(ref array, 3);
+            NutArrayUtils.RemoveAt(ref array, 3);
         }
     }
 
@@ -99,7 +99,7 @@ MoveUp and MoveDown
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools.Utilities;
+    using NutTools.Utilities;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -120,11 +120,11 @@ MoveUp and MoveDown
         {
             // Array is set to
             // [ "Text 0", "Text 2", "Text 1", "Text 3", "Text 4", "Text 5" ]
-            IvyArrayUtils.MoveUp(ref array, 2);
+            NutArrayUtils.MoveUp(ref array, 2);
 
             // List is set to
             // [ "Text 0", "Text 1", "Text 3", "Text 2", "Text 4", "Text 5" ]
-            IvyListUtils.MoveDown(ref list, 2);
+            NutListUtils.MoveDown(ref list, 2);
         }
     }
 
@@ -140,7 +140,7 @@ OffsetUp and OffsetDown
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -161,11 +161,11 @@ OffsetUp and OffsetDown
         {
             // Array is set to
             // [ "Text 1", "Text 2", "Text 3", "Text 4", "Text 5", "Text 0" ]
-            IvyArrayUtils.OffsetUp(ref array); 
+            NutArrayUtils.OffsetUp(ref array); 
     
             // List is set to
             // [ "Text 4", "Text 5", "Text 0", "Text 1", "Text 2", "Text 3" ]
-            IvyListUtils.OffsetDown(ref list, 2);
+            NutListUtils.OffsetDown(ref list, 2);
         }
     }
 
@@ -174,7 +174,7 @@ OffsetUp and OffsetDown
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
 
@@ -183,5 +183,5 @@ OffsetUp and OffsetDown
     * `Arrays <https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/arrays>`_
     * `System.Array <https://docs.microsoft.com/en-us/dotnet/api/system.array?view=netcore-3.1>`_
 
-    * :ref:`IvyIOUtils <ioutils>`
-    * :ref:`IvyLogUtils <logutils>`
+    * :ref:`NutIOUtils <ioutils>`
+    * :ref:`NutLogUtils <logutils>`

@@ -37,7 +37,7 @@ AddRegister adds an item to the Register if the given key isn't there already an
 .. code-block:: csharp
     :linenos:
     
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -59,7 +59,7 @@ Clears all references from the Register but the LastRetrieved property.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -81,7 +81,7 @@ Returns if the identifier provided is registered.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -106,7 +106,7 @@ Returns the object associated to the identifier string if it is present inside t
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -132,7 +132,7 @@ Returns an array with the objects associated to the provided identifiers that ca
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -158,7 +158,7 @@ TryAddRegister adds an item to the Register if the given key isn't there already
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -183,7 +183,7 @@ Gets the item relative to the identifier and returns the success state of the op
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -208,7 +208,7 @@ Gets the items relative to the identifiers that exist and returns the success st
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -234,7 +234,7 @@ Tries to remove an entry
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -259,7 +259,7 @@ Removes an item from the Register if the given key is available.  It's an implem
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -296,7 +296,7 @@ Empty and Null representations of Register.
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
 

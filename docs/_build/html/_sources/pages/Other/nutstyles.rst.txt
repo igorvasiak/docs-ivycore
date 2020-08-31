@@ -1,5 +1,5 @@
 =========
-IvyStyles
+NutStyles
 =========
 
 This is the collection of GUIStyle properties I use to create my custom editors. Most are minor things, slightly adjusted to match what I consider ideal UI rules.
@@ -24,4 +24,4 @@ This is the collection of GUIStyle properties I use to create my custom editors.
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!

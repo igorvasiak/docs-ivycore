@@ -1,5 +1,5 @@
 =============
-IvyGUIUtility
+NutGUIUtility
 =============
 
 Useful things I use to make custom editors.
@@ -9,7 +9,7 @@ Useful things I use to make custom editors.
 
 **Paths**
 
-* IvyCoreFolderPath
+* NutCoreFolderPath
 * IconsFolderPath
 
 **Textures**
@@ -39,11 +39,11 @@ Useful things I use to make custom editors.
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
 
-    * :ref:`IvyEditorColors`
-    * :ref:`IvyGUI`
-    * :ref:`IvyGUILayout`
-    * :ref:`IvyStyles`
+    * :ref:`NutEditorColors`
+    * :ref:`NutGUI`
+    * :ref:`NutGUILayout`
+    * :ref:`NutStyles`

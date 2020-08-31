@@ -1,9 +1,9 @@
-.. Ivy Core documentation master file, created by
+.. Nut Library documentation master file, created by
    sphinx-quickstart on Tue Apr 21 15:48:00 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Ivy Core's documentation!
+Welcome to Nut Library's documentation!
 ====================================
 
 .. toctree::
@@ -47,11 +47,11 @@ Welcome to Ivy Core's documentation!
     :Caption: Editor
 
     pages/editor/bootstrap
-    pages/editor/ivyeditorcolors
-    pages/editor/ivygui
-    pages/editor/ivyguilayout
-    pages/editor/ivyguiutility
-    pages/editor/ivystyles
+    pages/editor/nuteditorcolors
+    pages/editor/nutgui
+    pages/editor/nutguilayout
+    pages/editor/nutguiutility
+    pages/editor/nutstyles
 
 Indices and tables
 ==================

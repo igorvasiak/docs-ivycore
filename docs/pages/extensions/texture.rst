@@ -1,5 +1,5 @@
 ====================
-IvyTextureExtensions
+NutTextureExtensions
 ====================
 
 Overview
@@ -23,7 +23,7 @@ Copies all data from the former texture to the target one. Returns the target te
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -47,7 +47,7 @@ Colors the given texture with the brightness value of each pixel, resulting in a
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -81,7 +81,7 @@ Shifts random pixels from the texture to a color with the given intensity ("**t*
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -106,7 +106,7 @@ Shifts the entire texture towards a color with the given intensity ("**t**").
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -126,7 +126,7 @@ Shifts the entire texture towards a color with the given intensity ("**t**").
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
     

@@ -57,7 +57,7 @@ Sets both the main.startColor.colorMin and main.startColor.colorMax properties.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -77,7 +77,7 @@ Sets both the main.startColor.colorMin and main.startColor.colorMax properties.
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
     

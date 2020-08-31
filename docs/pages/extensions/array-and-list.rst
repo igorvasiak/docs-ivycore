@@ -4,7 +4,7 @@ Array and List Extensions
 
 These extensions will shorten the code by a large chunk, make the code readable, and easier to manage.
 
-Some extensions may seem redundant like First and Convert, which are both present under the System.Linq namespace. While that's true, Linq treats most - if not all - collection extensions as IEnumerables, while Ivy Core treats arrays and lists separately, making implementation easier to understand.
+Some extensions may seem redundant like First and Convert, which are both present under the System.Linq namespace. While that's true, Linq treats most - if not all - collection extensions as IEnumerables, while Nut Library treats arrays and lists separately, making implementation easier to understand.
 
 Overview
 --------
@@ -43,7 +43,7 @@ Returns the provided index or the default value respective to the array object's
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -75,7 +75,7 @@ Tells if the array contains a specific index.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -106,7 +106,7 @@ Converts the array of type ``T1`` to an array of type ``T2`` via casting. ``T1``
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -131,7 +131,7 @@ Fills an array with the given value.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -167,7 +167,7 @@ Fills the array with black and white levels. The alpha is also randomized.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -203,7 +203,7 @@ Sets the last element of the array.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -235,7 +235,7 @@ Returns an array with the types of the items stored inside of the original array
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -260,7 +260,7 @@ Returns a readable string version of the array.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -288,7 +288,7 @@ Makes an array of the given size with the provided object.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -346,7 +346,7 @@ Sets a random item of the array to the given item.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -433,7 +433,7 @@ Sets the objects' parent to the root of the scene and the active state to «stat
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -460,7 +460,7 @@ Sets the objects' parent to the root of the scene and the active state to «stat
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
 

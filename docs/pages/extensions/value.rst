@@ -35,7 +35,7 @@ Add and Sub are available to all vectors, including VectorInts.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -66,7 +66,7 @@ These methods use maths to return different types of brightness levels of a colo
 .. code-block:: csharp
     :linenos:
 
-    using IvyCore;
+    using NutCore;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -109,7 +109,7 @@ Returns the closest point in an array of floats, ints, and vectors.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -137,7 +137,7 @@ You can call them from components, vectors, and GameObjects.
 .. code-block:: csharp
     :linenos:
     
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -166,7 +166,7 @@ InversePoint
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -198,7 +198,7 @@ Logic
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -281,7 +281,7 @@ Converts values to vectors, and vectors into other vectors.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -304,7 +304,7 @@ They return a new color which copies all values from the extended one, and sets 
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -327,7 +327,7 @@ They return a new vector with the respective field set to the provided value. Th
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -347,7 +347,7 @@ They return a new vector with the respective field set to the provided value. Th
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
 

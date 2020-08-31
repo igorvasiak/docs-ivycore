@@ -1,5 +1,5 @@
 ==========
-IvyIOUtils
+NutIOUtils
 ==========
 
 Overview
@@ -28,7 +28,7 @@ It looks for the file name recursively, recalling itself as many times as needed
 .. code-block:: csharp
     :linenos:
     
-    using IvyTools.Utilities;
+    using NutTools.Utilities;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -38,10 +38,10 @@ It looks for the file name recursively, recalling itself as many times as needed
             byte[] bytes = File.ReadAllBytes("C:\Users\joe\Desktop\image.png");
 
             // If image.png already exists it'll return image 1.png.
-            File.WriteAllBytes(IvyIOUtils.GetIndexedPath("C:\Users\joe\Desktop\", "image", "png"), bytes);
+            File.WriteAllBytes(NutIOUtils.GetIndexedPath("C:\Users\joe\Desktop\", "image", "png"), bytes);
 
             // If image 5.png already exists it'll return image 6.png, or keep calling until it finds an unused name.
-            File.WriteAllBytes(IvyIOUtils.GetIndexedPath("C:\Users\joe\Desktop\", "image", "png", 5), bytes);
+            File.WriteAllBytes(NutIOUtils.GetIndexedPath("C:\Users\joe\Desktop\", "image", "png", 5), bytes);
         }
     }
 
@@ -55,14 +55,14 @@ Loads the sprite located at "path" with the provided resolution.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools;
+    using NutTools;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
     {
         void MyMethod()
         {
-            Sprite sprite = IvyIOUtils.LoadSprite("C:\Users\joe\Desktop\image.png", 512, 512);
+            Sprite sprite = NutIOUtils.LoadSprite("C:\Users\joe\Desktop\image.png", 512, 512);
         }
     }
 
@@ -80,7 +80,7 @@ Loads the image and sets sprite if sprite is null. It returns wether tex has bee
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools.Utilities;
+    using NutTools.Utilities;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -88,9 +88,9 @@ Loads the image and sets sprite if sprite is null. It returns wether tex has bee
         void MyMethod()
         {
             Sprite sprite = null;
-            IvyIOUtils.LoadToNullSprite(ref sprite, "C:\Users\joe\Desktop\image.png", 512, 512);
+            NutIOUtils.LoadToNullSprite(ref sprite, "C:\Users\joe\Desktop\image.png", 512, 512);
 
-            if (IvyIOUtils.TryLoadToNullSprite(ref sprite , "C:\Users\joe\Desktop\image.png", 512, 512))
+            if (NutIOUtils.TryLoadToNullSprite(ref sprite , "C:\Users\joe\Desktop\image.png", 512, 512))
             {
                 // Do stuff…
             }
@@ -107,14 +107,14 @@ Loads the image located at "path" with the provided resolution.
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools.Utilities;
+    using NutTools.Utilities;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
     {
         void MyMethod()
         {
-            Texture2D tex = IvyIOUtils.LoadTexture("C:\Users\joe\Desktop\image.png", 512, 512);
+            Texture2D tex = NutIOUtils.LoadTexture("C:\Users\joe\Desktop\image.png", 512, 512);
         }
     }
 
@@ -132,7 +132,7 @@ Loads the texture and sets tex if tex is null. It returns wether it set tex or n
 .. code-block:: csharp
     :linenos:
 
-    using IvyTools.Utilities;
+    using NutTools.Utilities;
     using UnityEngine;
 
     public class MyClass: MonoBehaviour
@@ -140,9 +140,9 @@ Loads the texture and sets tex if tex is null. It returns wether it set tex or n
         void MyMethod()
         {
             Texture2D tex = null;
-            IvyIOUtils.LoadToNullTexture(ref tex, "C:\Users\joe\Desktop\image.png", 512, 512);
+            NutIOUtils.LoadToNullTexture(ref tex, "C:\Users\joe\Desktop\image.png", 512, 512);
 
-            if (IvyIOUtils.TryLoadToNullTexture(ref tex, "C:\Users\joe\Desktop\image.png", 512, 512))
+            if (NutIOUtils.TryLoadToNullTexture(ref tex, "C:\Users\joe\Desktop\image.png", 512, 512))
             {
                 // Do things…
             }
@@ -154,9 +154,9 @@ Loads the texture and sets tex if tex is null. It returns wether it set tex or n
 **GET HELP**
 ------------
 
-`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help, suggest new features, and vote on future updates!
+`Join this Discord server <https://discord.gg/CvG3p7Q>`_ to get help from the community, suggest new features, and vote on future updates!
 
 .. seealso::
 
-    * :ref:`IvyArrayUtils and IvyListUtils <arrayutils-and-listutils>`
-    * :ref:`IvyLogUtils <logutils>`
+    * :ref:`NutArrayUtils and NutListUtils <arrayutils-and-listutils>`
+    * :ref:`NutLogUtils <logutils>`
