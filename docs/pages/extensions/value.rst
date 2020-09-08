@@ -8,11 +8,15 @@ Overview
 --------
 
     * :ref:`Add and Sub`
+    * :ref:`AsPositive and AsNegative` (*No documentation yet*)
     * :ref:`AverageBrightness, Luminance, and PerceivedLuminance`
     * :ref:`ClosestPoint`
     * :ref:`Dir and Dist`
+    * :ref:`GetBrightness` (*No documentation yet*)
     * :ref:`InversePoint`
     * :ref:`Logic`
+    * :ref:`ToGrayscale` (*No documentation yet*)
+    * :ref:`ToRGB(A)(32)` (*No documentation yet*)
     * :ref:`ToVec`
     * :ref:`WithR/G/B/A`
     * :ref:`WithX/Y/Z/W`
@@ -38,7 +42,7 @@ Add and Sub are available to all vectors, including VectorInts.
     using NutTools;
     using UnityEngine;
 
-    public class MyClass: MonoBehaviour
+    public class MyClass : MonoBehaviour
     {
         void MyMethod()
         {
@@ -69,7 +73,7 @@ These methods use maths to return different types of brightness levels of a colo
     using NutCore;
     using UnityEngine;
 
-    public class MyClass: MonoBehaviour
+    public class MyClass : MonoBehaviour
     {
         public void MyMethod()
         {
@@ -112,7 +116,7 @@ Returns the closest point in an array of floats, ints, and vectors.
     using NutTools;
     using UnityEngine;
 
-    public class MyClass: MonoBehaviour
+    public class MyClass : MonoBehaviour
     {
         public Transform[] objs;
 
@@ -140,7 +144,7 @@ You can call them from components, vectors, and GameObjects.
     using NutTools;
     using UnityEngine;
 
-    public class MyClass: MonoBehaviour
+    public class MyClass : MonoBehaviour
     {
         public GameObject other;
 
@@ -169,7 +173,7 @@ InversePoint
     using NutTools;
     using UnityEngine;
 
-    public class MyClass: MonoBehaviour
+    public class MyClass : MonoBehaviour
     {
         public Transform[] transforms = new Transform[0];
 
@@ -182,18 +186,18 @@ InversePoint
 Logic
 -----
 
-* ``bool GreaterAny(this Vector a, Vector b)``
-* ``bool LessAny(this Vector a, Vector b)``
-* ``bool GreaterAll(this Vector a, Vector b)``
-* ``bool LessAll(this Vector a, Vector b)``
+* ``bool IsAnyPointGreaterThan(this Vector a, Vector b)``
+* ``bool IsAnyPointLessThan(this Vector a, Vector b)``
+* ``bool AreAllPointsGreaterThan(this Vector a, Vector b)``
+* ``bool AreAllPointsLessThan(this Vector a, Vector b)``
 
-**GreaterAny** returns true if any axis from **a** is greater than any axis from **b**.
+**IsAnyPointGreaterThan**, previously **GreaterAny**, returns true if any axis from **a** is greater than any axis from **b**.
 
-**LessAny** returns true if any axis from **a** is lesser than any axis from **b**.
+**IsAnyPointLessThan**, previously **LessAny**, returns true if any axis from **a** is lesser than any axis from **b**.
 
-**GreaterAll** returns true if all axis from **a** are greater than all axis from **b**.
+**AreAllPointsGreaterThan**, previously **GreaterAll**, returns true if all axis from **a** are greater than all axis from **b**.
 
-**LessAll** returns if all axis from **a** are lesser than all axis from **b**.
+**AreAllPointsLessThan**, previously **LessAll**, returns if all axis from **a** are lesser than all axis from **b**.
 
 .. code-block:: csharp
     :linenos:
@@ -201,14 +205,14 @@ Logic
     using NutTools;
     using UnityEngine;
 
-    public class MyClass: MonoBehaviour
+    public class MyClass : MonoBehaviour
     {       
         void MyMethod()
         {
             Vector3 a = new Vector3(5f, 6f, 1f);
             Vector3 b = new Vector3(6f, 2f, 3f);
-            a.GreaterAny(b); // Returns true.
-            b.LessAll(a); // Returns false.
+            a.IsAnyPointGreaterThan(b); // Returns true.
+            b.AreAllPointsLessThan(a); // Returns false.
         }
     }
 
@@ -219,6 +223,8 @@ Converts values to vectors, and vectors into other vectors.
 
 **TO VECTOR 4**
 
+* ``ToVec4(this Color vec)``
+* ``ToVec4(this Color32 vec)``
 * ``ToVec4(this Vector3 vec, float w)``
 * ``ToVec4(this Vector3Int vec, float w)``
 * ``ToVec4(this Vector2 vec, float z, float w)``
@@ -232,6 +238,8 @@ Converts values to vectors, and vectors into other vectors.
 
 **TO VECTOR 3**
 
+* ``ToVec3(this Color vec)``
+* ``ToVec3(this Color32 vec)``
 * ``ToVec3(this Vector4 vec)``
 * ``ToVec3(this Vector3Int vec)``
 * ``ToVec3(this Vector2 vec, float z)``
@@ -284,7 +292,7 @@ Converts values to vectors, and vectors into other vectors.
     using NutTools;
     using UnityEngine;
 
-    public class MyClass: MonoBehaviour
+    public class MyClass : MonoBehaviour
     {    
         void MyMethod()
         {
@@ -307,7 +315,7 @@ They return a new color which copies all values from the extended one, and sets 
     using NutTools;
     using UnityEngine;
 
-    public class MyClass: MonoBehaviour
+    public class MyClass : MonoBehaviour
     {
         void MyMethod()
         {
@@ -330,7 +338,7 @@ They return a new vector with the respective field set to the provided value. Th
     using NutTools;
     using UnityEngine;
 
-    public class MyClass: MonoBehaviour
+    public class MyClass : MonoBehaviour
     {
         void MyMethod()
         {

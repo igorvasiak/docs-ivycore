@@ -5,10 +5,17 @@ NutTextureExtensions
 Overview
 --------
 
+    * :ref:`ApplyFilterMode` (*No documentation yet*)
+    * :ref:`ApplyWrapModes` (*No documentation yet*)
     * :ref:`CopyTo`
+    * :ref:`CreateDuplicate` (*No documentation yet*)
+    * :ref:`CreateDuplicateWithNewTexture` (*No documentation yet*)
+    * :ref:`CreateDuplicateWithOldTexture` (*No documentation yet*)
+    * :ref:`GetNormalizedPivot` (*No documentation yet*)
+    * :ref:`GetTextureArea` (*No documentation yet*)
     * :ref:`MakeBlackAndWhite`
-    * :ref:`ShiftRandomPixelsTowards`
-    * :ref:`ShiftTowards`
+    * :ref:`LerpRandomPixels`
+    * :ref:`LerpPixels`
 
 **METHODS**
 -----------
@@ -16,7 +23,7 @@ Overview
 CopyTo
 ------
 
-* ``Texture2D CopyTo(this Texture2D texture, Texture2D target)``
+* ``Texture2D CopyTo(this Texture2D origin, Texture2D destination)``
 
 Copies all data from the former texture to the target one. Returns the target texture.
 
@@ -26,14 +33,14 @@ Copies all data from the former texture to the target one. Returns the target te
     using NutTools;
     using UnityEngine;
 
-    public class MyClass: MonoBehaviour
+    public class MyClass : MonoBehaviour
     {
-        public Texture2D texture;
+        public Texture2D origin;
 
         void MyMethod()
         {
-            Texture2D copy_tex = new Texture2D(texture.width, texture.height);
-            texture.CopyTo(copy_tex);
+            Texture2D destination = new Texture2D(origin.width, origin.height);
+            origin.CopyTo(destination);
         }
     }
 
@@ -50,33 +57,34 @@ Colors the given texture with the brightness value of each pixel, resulting in a
     using NutTools;
     using UnityEngine;
 
-    public class MyClass: MonoBehaviour
+    public class MyClass : MonoBehaviour
     {
-        public Texture2D texture;
+        public Texture2D origin;
 
         void MyMethod()
         {
-            Texture2D copy_tex = new Texture2D(texture.width, texture.height);
-            texture.CopyTo(copy_tex);
-                   .MakeBlackAndWhite();
-            // Do the thing with "copy_tex".
+            Texture2D destination = new Texture2D(origin.width, origin.height);
+            origin.CopyTo(destination);
+                  .MakeBlackAndWhite();
         }
     }
 
-ShiftRandomPixelsTowards
-------------------------
+LerpRandomPixels
+----------------
 
-* ``ShiftRandomPixelsTowards(this Texture2D texture, Color targetColor)``
+* ``LerpRandomNumberOfRandomPixelsByNPercent(this Texture2D texture, Color targetColor)``
 
-Shifts a random amount of pixels in the texture to a color with random intensity.
+Linearly interpolates a random number of random pixels towards the target color by a random percentage.
+Iteration count and the amount each pixel will be shifted are both random.
 
-* ``ShiftRandomPixelsTowards(this Texture2D texture, Color targetColor, float t)``
+* ``LerpRandomNumberOfRandomPixels(this Texture2D texture, Color targetColor, float t)``
 
-Shifts a random amount of pixels in the texture to a color with the given intensity ("**t**").
+Linearly interpolates a random number of random pixels towards the target color by "t".
+Iteration count is random.
 
-* ``ShiftRandomPixelsTowards(this Texture2D texture, Color targetColor, float t, int iterations)``
+* ``LerpRandomPixels(this Texture2D texture, Color targetColor, float t, int iterations)``
 
-Shifts random pixels from the texture to a color with the given intensity ("**t**"). Iterations tells how many pixels will be altered. Altered pixels may be altered again.
+Shifts random pixels towards the target color by "t". Iterations tells how many pixels will be altered. Altered pixels may be altered again.
 
 .. code-block:: csharp
     :linenos:
@@ -84,24 +92,24 @@ Shifts random pixels from the texture to a color with the given intensity ("**t*
     using NutTools;
     using UnityEngine;
 
-    public class MyClass: MonoBehaviour
+    public class MyClass : MonoBehaviour
     {
-        public Texture2D texture;
+        public Texture2D origin;
 
         void MyMethod()
         {
-            Texture2D copy_tex = new Texture2D(texture.width, texture.height);
-            texture.CopyTo(copy_tex);
-                   .ShiftRandomPixelsTowards(Color.white, .5f, 10000);
+            Texture2D destination = new Texture2D(origin.width, origin.height);
+            origin.CopyTo(destination);
+                  .LerpRandomPixels(Color.white, .5f, 10000);
         }
     }
 
-ShiftTowards
-------------
+LerpColors
+----------
 
-* ``ShiftTowards(this Texture2D texture, Color targetColor, float t)``
+* ``LerpColors(this Texture2D texture, Color targetColor, float t)``
 
-Shifts the entire texture towards a color with the given intensity ("**t**").
+Linearly interpolates the texture's colors to the "targetColor" by "t".
 
 .. code-block:: csharp
     :linenos:
@@ -109,15 +117,15 @@ Shifts the entire texture towards a color with the given intensity ("**t**").
     using NutTools;
     using UnityEngine;
 
-    public class MyClass: MonoBehaviour
+    public class MyClass : MonoBehaviour
     {
-        public Texture2D texture;
+        public Texture2D origin;
 
         void MyMethod()
         {
-            Texture2D copy_tex = new Texture2D(texture.width, texture.height);
-            texture.CopyTo(copy_tex);
-                   .ShiftTowards(Color.white, .5f, 10000);
+            Texture2D destination = new Texture2D(origin.width, origin.height);
+            origin.CopyTo(destination);
+                  .LerpColors(Color.white, .5f, 10000);
         }
     }
 
